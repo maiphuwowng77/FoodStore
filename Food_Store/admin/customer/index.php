@@ -23,7 +23,7 @@ require_once ('../../db/dbhelper.php');?>
 	<nav class="navbar navbar-expand-sm bg-light navbar-light">
 		<!-- Brand/logo -->
 		<a class="navbar-brand" href="#">
-			<img src="../../coffeeshop-home/img/Logo.png" alt="logo" style="max-width:50px;">
+			<img src="../../food_store_web/img/Logo.png" alt="logo" style="max-width:50px;">
 		</a>
 
 		<!-- Links -->
@@ -44,7 +44,7 @@ require_once ('../../db/dbhelper.php');?>
 				<a class="nav-link" href="../admin.php">Trang chủ</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="../../coffeeshop-home/build/user.php">Đăng xuất</a>
+				<a class="nav-link" href="../../food_store_web/build/user.php">Đăng xuất</a>
 			</li>
 		</ul>
 	</nav>

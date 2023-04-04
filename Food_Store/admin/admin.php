@@ -12,11 +12,6 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <link href="../coffeeshop-home/build/stylesheets/General.css" rel="stylesheet">
-    <link href="../coffeeshop-home/build/stylesheets/Button.css" rel="stylesheet">
-    <link href="../coffeeshop-home/build/stylesheets/Layout.css" rel="stylesheet">
-    <link href="../coffeeshop-home/build/stylesheets/Popup.css" rel="stylesheet">
-    <link href="../coffeeshop-home/build/stylesheets/Product.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,7 +35,7 @@
 	<nav class="navbar navbar-expand-sm bg-light navbar-light">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="#">
-            <img src="../coffeeshop-home/img/Logo.png" alt="logo" style="max-width:50px;">
+            <img src="../food_store_web/img/Logo.png" alt="logo" style="max-width:50px;">
         </a>
 
         <!-- Links -->

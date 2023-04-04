@@ -19,7 +19,7 @@ if(isset($_POST['username'])){
 	<body>
 		<form action="../employee/index.php" method="post">
 			<div class="imgcontainer">
-				<img src="../../coffeeshop-home/img/Logo.png" alt="Avatar" class="avatar">
+				<img src="../../food_store_web/img/Logo.png" alt="Avatar" class="avatar">
 			</div>
 
 			<div class="container">
@@ -36,7 +36,7 @@ if(isset($_POST['username'])){
 			</div>
 
 			<div class="container" style="background-color:#f1f1f1">
-				<button type="button" onclick="location.href='../../coffeeshop-home/build/user.php'" class="cancelbtn">Cancel</button>
+				<button type="button" onclick="location.href='../../food_store_web/build/user.php'" class="cancelbtn">Cancel</button>
 			</div>
 			</form>
 	</body>
