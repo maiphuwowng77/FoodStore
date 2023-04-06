@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Apr 04, 2023 at 06:49 PM
+-- Generation Time: Apr 06, 2023 at 08:42 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `customer` (
   `customerNumber` int(11) NOT NULL,
-  `customerName` varchar(50) DEFAULT NULL,
+  `customerName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `phone` varchar(50) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
+  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `loyalty_card` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -43,7 +43,7 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `employees` (
   `employeeNumber` int(11) NOT NULL,
-  `employeeName` varchar(50) NOT NULL,
+  `employeeName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `gender` varchar(10) NOT NULL,
   `birthday` date NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -103,8 +103,8 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `productline` (
-  `productLine` varchar(50) NOT NULL,
-  `description` text DEFAULT NULL,
+  `productLine` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `description` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `image_path` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -113,13 +113,13 @@ CREATE TABLE `productline` (
 --
 
 INSERT INTO `productline` (`productLine`, `description`, `image_path`) VALUES
-('Canh', NULL, NULL),
-('Com', NULL, NULL),
-('Do uong', NULL, NULL),
-('Ga', NULL, NULL),
-('Kimbap', NULL, NULL),
-('My', NULL, NULL),
-('Tokbokki', NULL, NULL);
+('Canh', '', NULL),
+('Com', '', NULL),
+('Do uong', '', NULL),
+('Ga', '', NULL),
+('Kimbap', '', NULL),
+('My', '', NULL),
+('Tokbokki', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -129,11 +129,11 @@ INSERT INTO `productline` (`productLine`, `description`, `image_path`) VALUES
 
 CREATE TABLE `products` (
   `productCode` varchar(15) NOT NULL,
-  `productName` varchar(50) NOT NULL,
-  `productLine` varchar(50) NOT NULL,
+  `productName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `productLine` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `available` tinyint(1) NOT NULL,
-  `productDescription` longtext NOT NULL,
+  `productDescription` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `image_path` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -142,35 +142,35 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`productCode`, `productName`, `productLine`, `price`, `available`, `productDescription`, `image_path`) VALUES
-('CA_001', 'Canh rong bien', 'Canh', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh rong bien.jpg'),
+('CA_001', 'Canh rong biển', 'Canh', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh rong bien.jpg'),
 ('CA_002', 'Canh kim chi', 'Canh', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh kim chi.jpg'),
-('CA_003', 'Canh dau tuong', 'Canh', '400000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh dau tuong.jpg'),
-('CA_004', 'Canh suon bo', 'Canh', '60000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh suon bo.jpg'),
-('C_001', 'Com thit nuong', 'Com', '50000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Com thit nuong.png'),
-('C_002', 'Com bibimbap', 'Com', '70000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Com bibimbap.jpg'),
-('C_003', 'Com rang kim chi', 'Com', '400000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Com rang kim chi.png'),
-('C_004', 'Com cuon trung', 'Com', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Com cuon trung.jpg'),
-('DU_001', 'Ruou soju', 'Do uong', '70000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Ruou soju.jpg'),
+('CA_003', 'Canh đậu tương', 'Canh', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh dau tuong.jpg'),
+('CA_004', 'Canh sườn bò', 'Canh', '60000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh suon bo.jpg'),
+('C_001', 'Cơm thịt nướng', 'Com', '50000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Com thit nuong.png'),
+('C_002', 'Cơm Bibimbap', 'Com', '70000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Com bibimbap.jpg'),
+('C_003', 'Cơm rang kim chi', 'Com', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Com rang kim chi.png'),
+('C_004', 'Cơm cuộn trứng', 'Com', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Com cuon trung.jpg'),
+('DU_001', 'Rượu Soju', 'Do uong', '70000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Ruou soju.jpg'),
 ('DU_002', 'Coca Cola', 'Do uong', '15000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Coca Cola.jpg'),
-('DU_003', 'Nuoc ep tao', 'Do uong', '25000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Nuoc ep tao.jpg'),
-('DU_004', 'Nuoc ep le', 'Do uong', '25000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Nuoc ep le.jpg'),
-('DU_005', 'Nuoc ep cam', 'Do uong', '25000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Nuoc ep cam.jpg'),
-('G_001', 'Dui ga ran', 'Ga', '30000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Dui ga ran.jpg'),
-('G_002', 'Canh ga mat ong', 'Ga', '60000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh ga mat ong.jpg'),
-('G_003', 'Ga ran sot cay', 'Ga', '60000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Ga ran sot cay.jpg'),
-('G_004', 'Ga xao pho mai', 'Ga', '50000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Ga xao pho mai.jpg'),
-('KB_001', 'Kimbap truyen thong', 'Kimbap', '35000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Kimbap truyen thong.jpg'),
-('KB_002', 'Kimbap thit nuong', 'Kimbap', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Kimbap thit nuong.jpg'),
-('KB_003', 'Kimbap chien', 'Kimbap', '400000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Kimbap chien.jpg'),
-('KB_004', 'Kimbap cuon trung', 'Kimbap', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Kimbap cuon trung.jpg'),
-('M_001', 'My cay tron', 'My', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/My cay tron.jpg'),
-('M_002', 'My lanh', 'My', '50000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/My lanh.jpg'),
-('M_003', 'My tuong den', 'My', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/My tuong den.png'),
-('M_004', 'My y', 'My', '50000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/My y.jpeg'),
-('T_001', 'Tokbokki xao cay', 'Tokbokki', '35000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki xao cay.png'),
-('T_002', 'Tokbokki pho mai', 'Tokbokki', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki pho mai.jpg'),
-('T_003', 'Tokbokki chien', 'Tokbokki', '30000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki chien.png'),
-('T_004', 'Tokbokki xao bo', 'Tokbokki', '45000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki xao bo.jpg');
+('DU_003', 'Nước éo táo', 'Do uong', '25000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Nuoc ep tao.jpg'),
+('DU_004', 'Nước ép lê', 'Do uong', '25000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Nuoc ep le.jpg'),
+('DU_005', 'Nước ép cam', 'Do uong', '25000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Nuoc ep cam.jpg'),
+('G_001', 'Đùi gà rán', 'Ga', '30000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Dui ga ran.jpg'),
+('G_002', 'Cánh gà mật ong', 'Ga', '60000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Canh ga mat ong.jpg'),
+('G_003', 'Gà rán sốt cay', 'Ga', '60000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Ga ran sot cay.jpg'),
+('G_004', 'Gà xào phô mai', 'Ga', '50000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Ga xao pho mai.jpg'),
+('KB_001', 'Kimbap truyền thống', 'Kimbap', '35000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Kimbap truyen thong.jpg'),
+('KB_002', 'Kimbap thịt nướng', 'Kimbap', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Kimbap thit nuong.jpg'),
+('KB_003', 'Kimbap chiên', 'Kimbap', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Kimbap chien.jpg'),
+('KB_004', 'Kimbap cuộn trứng', 'Kimbap', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Kimbap cuon trung.jpg'),
+('M_001', 'Mỳ cay trộn', 'My', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/My cay tron.jpg'),
+('M_002', 'Mỳ lạnh', 'My', '50000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/My lanh.jpg'),
+('M_003', 'Mỳ tương đen', 'My', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/My tuong den.png'),
+('M_004', 'Mỳ Ý', 'My', '50000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/My y.jpeg'),
+('T_001', 'Tokbokki xào cay', 'Tokbokki', '35000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki xao cay.png'),
+('T_002', 'Tokbokki phô mai', 'Tokbokki', '40000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki pho mai.jpg'),
+('T_003', 'Tokbokki chiên', 'Tokbokki', '30000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki chien.png'),
+('T_004', 'Tokbokki xào bò', 'Tokbokki', '45000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki xao bo.jpg');
 
 -- --------------------------------------------------------
 
@@ -180,7 +180,7 @@ INSERT INTO `products` (`productCode`, `productName`, `productLine`, `price`, `a
 
 CREATE TABLE `store` (
   `storeId` int(4) NOT NULL,
-  `address` varchar(50) NOT NULL,
+  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `phone` varchar(50) NOT NULL,
   `managerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
