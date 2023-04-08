@@ -1,41 +1,48 @@
 <?php
+    require_once ('../../db/dbhelper.php');
     session_start();
     include "thuvien.php";
     if(!isset($_SESSION['giohang'])) $_SESSION['giohang']=[];
     //làm rỗng giỏ hàng
     if(isset($_GET['delcart'])&&($_GET['delcart']==1)) unset($_SESSION['giohang']);
-    //xóa sp trong giỏ hàng
-    if(isset($_GET['delid'])&&($_GET['delid']>=0)){
-       array_splice($_SESSION['giohang'],$_GET['delid'],1);
-    }
     //lấy dữ liệu từ form
     if(isset($_POST['addcart'])&&($_POST['addcart'])){
         $hinh=$_POST['hinh'];
         $tensp=$_POST['tensp'];
         $gia=$_POST['gia'];
         $soluong=$_POST['soluong'];
+        //kiem tra trang thai cua san pham (co san hay ko?)
+        $sql = 'select * from products where productName = "'.$tensp.'"';
+        $check = executeSingleResult($sql);
+        if ($check['available'] == '0') {
+            echo "<script>
+                    var option = confirm('Sản phẩm này đã hết. Bạn có muốn quay lại trang sản phẩm không?')
+                    if (option) {location.href = './product.php';}
+                  </script>";
+        }
+        else {
+            //kiem tra sp co trong gio hang hay khong?
+            $fl=0; //kiem tra sp co trung trong gio hang khong?
+            for ($i=0; $i < sizeof($_SESSION['giohang']); $i++) { 
+                
+                if($_SESSION['giohang'][$i][1]==$tensp){
+                    $fl=1;
+                    $soluongnew=$soluong+$_SESSION['giohang'][$i][3];
+                    $_SESSION['giohang'][$i][3]=$soluongnew;
+                    break;
 
-        //kiem tra sp co trong gio hang hay khong?
-        $fl=0; //kiem tra sp co trung trong gio hang khong?
-        for ($i=0; $i < sizeof($_SESSION['giohang']); $i++) { 
-            
-            if($_SESSION['giohang'][$i][1]==$tensp){
-                $fl=1;
-                $soluongnew=$soluong+$_SESSION['giohang'][$i][3];
-                $_SESSION['giohang'][$i][3]=$soluongnew;
-                break;
-
+                }
+                
             }
-            
-        }
-        //neu khong trung sp trong gio hang thi them moi
-        if($fl==0){
-            //them moi sp vao gio hang
-            $sp=[$hinh,$tensp,$gia,$soluong];
-            $_SESSION['giohang'][]=$sp;
-        }
+            //neu khong trung sp trong gio hang thi them moi
+            if($fl==0){
+                //them moi sp vao gio hang
+                $sp=[$hinh,$tensp,$gia,$soluong];
+                $_SESSION['giohang'][]=$sp;
+            }
 
-       // var_dump($_SESSION['giohang']);
+           // var_dump($_SESSION['giohang']);
+            }
     }
 
 
@@ -79,7 +86,7 @@
                     Sản phẩm
                   </button>
                   <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" onclick="location.href='./product.html'" href="#">Tất cả</a></li>
+                    <li><a class="dropdown-item" onclick="location.href='./product.php'" href="#">Tất cả</a></li>
                     <li><a class="dropdown-item" href="#">Cơm</a></li>
                     <li><a class="dropdown-item" href="#">Canh</a></li>
                     <li><a class="dropdown-item" href="#">Kimbap</a></li>
@@ -93,7 +100,7 @@
 
             
               <li class="nav-item">
-                <a class="nav-link" onclick="location.href='./product.html'"href="#">Đặt hàng</a>
+                <a class="nav-link" onclick="location.href='./product.php'"href="#">Đặt hàng</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -113,19 +120,9 @@
       </nav>
       
     </header>
-
+<br><br><br><br></br></br></br></br>
+<body>
 <div class="content">
-    <ul class="slideshow">
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-    </ul>
     <div>
         <form action="bill.php" method="post">
             <div>
@@ -140,27 +137,12 @@
                             <th>Số lượng</th>
                             <th>Thành tiền (đ)</th>
                         </tr>
-                        <?php ?>                  
+                        <?php showgiohang1(); ?>                   
                     </thead>
                 </table>
             </div>
-            <div class="row">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" class="btn btn-warning" value="ĐẶT HÀNG" name="dongydathang">
+            <div style="padding-left: 25%;">
+                <input type="submit" class="btn btn-warning" style="width: 120px;" value="ĐẶT HÀNG" name="dongydathang">
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -168,13 +150,13 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="orderPage.html"><input type="button" class="btn btn-warning" value="TIẾP TỤC ĐẶT HÀNG"></a>
+                <a href="product.php"><input type="button" class="btn btn-warning" value="TIẾP TỤC ĐẶT HÀNG"></a>
             </div>
         </div>
     </form>   
 
 </div>
-
+</body>
 
 <footer id="footer" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
         <nav class="navbar navbar-expand-lg container" class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -198,10 +180,10 @@
                   <a onclick="location.href='./index.html#gioithieu'" href="#gioithieu">Giới thiệu</a>
                 </li>
                 <li class="item">
-                  <a  onclick="location.href='./product.html'" href="#">Sản phẩm</a>
+                  <a  onclick="location.href='./product.php'" href="#">Sản phẩm</a>
                 </li>
                 <li class="item">
-                  <a onclick="location.href='./product.html'" href="#">Đặt hàng</a>
+                  <a onclick="location.href='./product.php'" href="#">Đặt hàng</a>
                 </li>
               </ul>
             </div>
