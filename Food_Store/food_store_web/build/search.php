@@ -33,7 +33,7 @@ if (!empty($_POST)) {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav m-5 my-2 my-lg-0">
+          <ul class="navbar-nav m-5 my-2 my-lg-0 mx-auto">
             <li class="nav-item"><a class="nav-link active" onclick="location.href='./index.html'" href="#trangchu">Trang chủ</a></li>
             <li class="nav-item"><a class="nav-link" onclick="location.href='./index.html#gioithieu'" href="#gioithieu">Giới thiệu</a></li>
               
@@ -42,18 +42,17 @@ if (!empty($_POST)) {
                   Sản phẩm
               </button>
               <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" onclick="location.href='./product.php'" href="#">Tất cả</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#com'" href="#">Cơm</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'" href="#">Canh</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'" href="#">Kimbap</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'" href="#">Gà</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#my'" href="#">Mỳ</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'" href="#">Tokbokki</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'" href="#">Đồ uống</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php'">Tất cả</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#com'">Cơm</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'">Canh</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'">Kimbap</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'">Gà</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#my'">Mỳ</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'">Tokbokki</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'">Đồ uống</a></li>
               </ul>
             </div>
-            
-            <li class="nav-item"><a class="nav-link" onclick="location.href='./orderPage.html'"href="#">Đặt hàng</a></li>
+          
           </ul>
 
           
@@ -65,7 +64,6 @@ if (!empty($_POST)) {
             
         <div class="icon px-1">
           <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="70" height="70" alt="">
-          <span class="badge bg-danger">0</span>
         </div>
 
         <div class="icon px-1">
@@ -133,9 +131,6 @@ if (!empty($_POST)) {
               </li>
               <li class="item">
                 <a  onclick="location.href='./product.php'" href="#">Sản phẩm</a>
-              </li>
-              <li class="item">
-                <a onclick="location.href='./orderPage.html'" href="#">Đặt hàng</a>
               </li>
             </ul>
           </div>

@@ -36,18 +36,17 @@ $sanpham ='';
                   Sản phẩm
               </button>
               <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" onclick="location.href='./product.php'" href="#">Tất cả</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#com'" href="#">Cơm</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'" href="#">Canh</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'" href="#">Kimbap</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'" href="#">Gà</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#my'" href="#">Mỳ</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'" href="#">Tokbokki</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'" href="#">Đồ uống</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php'">Tất cả</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#com'">Cơm</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'">Canh</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'">Kimbap</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'">Gà</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#my'">Mỳ</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'">Tokbokki</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'">Đồ uống</a></li>
               </ul>
             </div>
             
-            <li class="nav-item"><a class="nav-link" onclick="location.href='./orderPage.html'"href="#">Đặt hàng</a></li>
           </ul>
 
           <form class="d-flex" method="post" action="search.php" >
@@ -58,7 +57,6 @@ $sanpham ='';
             
         <div class="icon px-1">
           <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="70" height="70" alt="">
-          <span class="badge bg-danger">0</span>
         </div>
 
         <div class="icon px-1">
@@ -69,7 +67,7 @@ $sanpham ='';
   </header>
   <br><br><br></br></br></br> 
     <body >
-      <div style="padding:15px">
+      <div style="padding:5px">
         <h1 class="text-center introduce" >Sản phẩm</h1>
         <div class="row">
           <nav class="navbar navbar-expand-sm justify-content-center">
@@ -102,7 +100,7 @@ $sanpham ='';
     
       <br><br></br></br>
       <div class="productlist">
-        <div id="com" class="container-fluid" style="padding:50px 20px;">
+        <div id="com" class="container-fluid" style="padding:120px 10px;">
           <h2>Cơm</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -138,7 +136,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="canh" class="container-fluid" style="padding:50px 20px;">
+        <div id="canh" class="container-fluid" style="padding:120px 10px;">
           <h2>Canh</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -172,7 +170,7 @@ $sanpham ='';
             ?> 
           </div>
         </div>
-        <div id="kimbap" class="container-fluid" style="padding:50px 20px;">
+        <div id="kimbap" class="container-fluid" style="padding:120px 10px;">
           <h2>Kimbap</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -208,7 +206,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="ga" class="container-fluid" style="padding:50px 20px;">
+        <div id="ga" class="container-fluid" style="padding:120px 10px;">
           <h2>Gà</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -244,7 +242,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="my" class="container-fluid" style="padding:50px 20px;">
+        <div id="my" class="container-fluid" style="padding:120px 10px;">
           <h2>Mỳ</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -280,7 +278,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="tokbokki" class="container-fluid" style="padding:50px 20px;">
+        <div id="tokbokki" class="container-fluid" style="padding:120px 10px;">
           <h2>Tokbokki</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -316,7 +314,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="douong" class="container-fluid" style="padding:50px 20px;">
+        <div id="douong" class="container-fluid" style="padding:120px 10px;">
           <h2>Đồ uống</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -384,9 +382,6 @@ $sanpham ='';
               </li>
               <li class="item">
                 <a  onclick="location.href='./product.php'" href="#">Sản phẩm</a>
-              </li>
-              <li class="item">
-                <a onclick="location.href='./orderPage.html'" href="#">Đặt hàng</a>
               </li>
             </ul>
           </div>

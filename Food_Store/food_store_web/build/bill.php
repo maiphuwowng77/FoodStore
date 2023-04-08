@@ -90,29 +90,23 @@
                   Sản phẩm
               </button>
               <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" onclick="location.href='./product.php'" href="#">Tất cả</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#com'" href="#">Cơm</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'" href="#">Canh</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'" href="#">Kimbap</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'" href="#">Gà</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#my'" href="#">Mỳ</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'" href="#">Tokbokki</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'" href="#">Đồ uống</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php'">Tất cả</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#com'">Cơm</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'">Canh</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'">Kimbap</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'">Gà</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#my'">Mỳ</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'">Tokbokki</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'">Đồ uống</a></li>
               </ul>
             </div>
-            
-            <li class="nav-item"><a class="nav-link" onclick="location.href='./orderPage.html'"href="#">Đặt hàng</a></li>
+          
           </ul>
 
-          <form class="d-flex">
-            <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
-            <button class="btn0" type="submit">Tìm kiếm</button>
-          </form>
         </div>
             
         <div class="icon px-1">
           <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="70" height="70" alt="">
-          <span class="badge bg-danger">0</span>
         </div>
 
         <div class="icon px-1">
@@ -174,9 +168,7 @@
                 <li class="item">
                   <a  onclick="location.href='./product.php'" href="#">Sản phẩm</a>
                 </li>
-                <li class="item">
-                  <a onclick="location.href='./orderPage.html'" href="#">Đặt hàng</a>
-                </li>
+              
               </ul>
             </div>
   
