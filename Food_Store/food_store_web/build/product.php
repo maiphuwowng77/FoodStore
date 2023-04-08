@@ -146,7 +146,6 @@ $sanpham ='';
                 //Lay danh sach san pham tu database
                 $sql          = 'select * from products where productLine = "Canh"';
                 $productList = executeResult($sql);
-
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">

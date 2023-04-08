@@ -69,7 +69,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito&family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   </head>
-  
 
   <header id="head" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
     <nav class="navbar navbar-expand-lg navbar navbar-expand-sm bg-light fixed-top">
