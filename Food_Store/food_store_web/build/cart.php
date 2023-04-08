@@ -63,61 +63,55 @@
   
   <header id="head" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
     <nav class="navbar navbar-expand-lg navbar navbar-expand-sm bg-light fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="#">FoodStore</a>
-          <div class="icon px-1">
-            <img src="../img/icon/logo.jpg" class="rounded-circle rounded float-start" width="100" height="100" alt="">
+      <div class="container">
+        <a class="navbar-brand" href="#">FoodStore</a>
+        <div class="icon px-1">
+          <img src="../img/icon/logo.jpg" class="rounded-circle rounded float-start" width="100" height="100" alt="">
         </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav m-5 my-2 my-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" onclick="location.href='./index.html'" href="#trangchu">Trang chủ</a>
-
-              </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#gioithieu">Giới thiệu</a>
-                </li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav m-5 my-2 my-lg-0">
+            <li class="nav-item"><a class="nav-link active" onclick="location.href='./index.html'" href="#trangchu">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="location.href='./index.html#gioithieu'" href="#gioithieu">Giới thiệu</a></li>
               
-                <div class="dropdown">
-                  <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Sản phẩm
-                  </button>
-                  <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" onclick="location.href='./product.php'" href="#">Tất cả</a></li>
-                    <li><a class="dropdown-item" href="#">Cơm</a></li>
-                    <li><a class="dropdown-item" href="#">Canh</a></li>
-                    <li><a class="dropdown-item" href="#">Kimbap</a></li>
-                    <li><a class="dropdown-item" href="#">Gà</a></li>
-                    <li><a class="dropdown-item" href="#">Mì</a></li>
-                    <li><a class="dropdown-item" href="#">Tokbokki</a></li>
-                    <li><a class="dropdown-item" href="#">Đồ uống</a></li>
-                  </ul>
-                </div>
-
-
+            <div class="dropdown">
+              <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sản phẩm
+              </button>
+              <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" onclick="location.href='./product.php'" href="#">Tất cả</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#com'" href="#">Cơm</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'" href="#">Canh</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'" href="#">Kimbap</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'" href="#">Gà</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#my'" href="#">Mỳ</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'" href="#">Tokbokki</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'" href="#">Đồ uống</a></li>
+              </ul>
+            </div>
             
-              <li class="nav-item">
-                <a class="nav-link" onclick="location.href='./product.php'"href="#">Đặt hàng</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
-              <button class="btn0" type="submit">Tìm kiếm</button>
-            </form>
-          </div>
+            <li class="nav-item"><a class="nav-link" onclick="location.href='./orderPage.html'"href="#">Đặt hàng</a></li>
+          </ul>
+
+          <form class="d-flex">
+            <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+            <button class="btn0" type="submit">Tìm kiếm</button>
+          </form>
+        </div>
             
-          <div class="icon px-1">
-            <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="70" height="70" alt="">
+        <div class="icon px-1">
+          <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="70" height="70" alt="">
+          <span class="badge bg-danger">0</span>
         </div>
 
         <div class="icon px-1">
-          <img src="../img/icon/user.png" onclick="location.href='../../admin/account/index.php'"class="rounded-circle rounded float-start" width="40" height="40" alt="">
-      </div>
+          <img src="../img/icon/user.png" onclick="location.href='../../admin/account'" class="rounded-circle rounded float-start" width="40" height="40" alt="">
         </div>
-      </nav>
+      </div>
+    </nav>
+  </header>
       
     </header>
 <br><br><br><br></br></br></br></br>

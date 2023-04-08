@@ -1,36 +1,36 @@
 <?php
-	session_start();
-	require_once ('../../db/dbhelper.php');
-	include "thuvien.php";
+  session_start();
+  require_once ('../../db/dbhelper.php');
+  include "thuvien.php";
     $ttkh = "";
     $ttghang = "";
-	if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
-		// lay thong tin kh để tao ma kh
-		$customerName = $_POST['hoten'];
-		$address = $_POST['diachi'];
-		$phone = $_POST['dienthoai'];
-		$email = $_POST['email'];
-		//insert khach hang neu chua co
-		$customerNumber = taokhachhang($customerName,$address,$phone,$email);
+  if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
+    // lay thong tin kh để tao ma kh
+    $customerName = $_POST['hoten'];
+    $address = $_POST['diachi'];
+    $phone = $_POST['dienthoai'];
+    $email = $_POST['email'];
+    //insert khach hang neu chua co
+    $customerNumber = taokhachhang($customerName,$address,$phone,$email);
 
-		// lay thong tin don hang de tao order
-		$total = tongdonhang();
-		$orderNumber = taodonhang($customerNumber,$total);
+    // lay thong tin don hang de tao order
+    $total = tongdonhang();
+    $orderNumber = taodonhang($customerNumber,$total);
 
-		// lay thong tin don hang de tao orderdetail
-		for($i=0; $i < sizeof($_SESSION['giohang']); $i++) {
-			$productName = $_SESSION['giohang'][$i][1];
-			$priceEach = $_SESSION['giohang'][$i][2]; 
-			$quantity = $_SESSION['giohang'][$i][3];
-			$orderLineNumber = $i + 1;
-			taogiohang($orderNumber, $productName, $quantity, $priceEach, $orderLineNumber);
-		}
+    // lay thong tin don hang de tao orderdetail
+    for($i=0; $i < sizeof($_SESSION['giohang']); $i++) {
+      $productName = $_SESSION['giohang'][$i][1];
+      $priceEach = $_SESSION['giohang'][$i][2]; 
+      $quantity = $_SESSION['giohang'][$i][3];
+      $orderLineNumber = $i + 1;
+      taogiohang($orderNumber, $productName, $quantity, $priceEach, $orderLineNumber);
+    }
 
-		// show don hang
-		$ttkh = '<h5>Bạn đã tạo thành công đơn hàng.</h5>
-					<h2>Mã đơn hàng: '.$orderNumber.'</h2>
-					<h2 style="width: 100%; text-align: center;">Thông tin khách hàng</h2>
-					<table class="table table-bordered table-striped table-hover">
+    // show don hang
+    $ttkh = '<h5>Bạn đã tạo thành công đơn hàng.</h5>
+          <h2>Mã đơn hàng: '.$orderNumber.'</h2>
+          <h2 style="width: 100%; text-align: center;">Thông tin khách hàng</h2>
+          <table class="table table-bordered table-striped table-hover">
                         <tr>
                             <td width="20%">Họ tên</td>
                             <td>'.$customerName.'</td>
@@ -50,12 +50,12 @@
                     </table>';
 
         $ttghang = showgiohang();
-		
-		// unset session
+    
+    // unset session
         unset($_SESSION['giohang']);
 
-	}
-	
+  }
+  
 ?>
 <html lang="en">
   <head>
@@ -96,7 +96,7 @@
                 <li><a class="dropdown-item" onclick="location.href='./product.php#canh'" href="#">Canh</a></li>
                 <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'" href="#">Kimbap</a></li>
                 <li><a class="dropdown-item" onclick="location.href='./product.php#ga'" href="#">Gà</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#mi'" href="#">Mì</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#my'" href="#">Mỳ</a></li>
                 <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'" href="#">Tokbokki</a></li>
                 <li><a class="dropdown-item" onclick="location.href='./product.php#douong'" href="#">Đồ uống</a></li>
               </ul>
@@ -126,7 +126,7 @@
 <div class="content">
     <div>
             <div class="container-fluid mt-3">
-             	<?php echo $ttkh;?>
+              <?php echo $ttkh;?>
                     
             </div>
             <div>

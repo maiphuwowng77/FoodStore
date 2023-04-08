@@ -48,7 +48,7 @@
                     $tong+=$tt;
                     echo '<tr>
                             <td>'.($i+1).'</td>
-                            <td><img src="'.$_SESSION['giohang'][$i][0].'" width = 250px alt=""></td>
+                            <td><img src="'.$_SESSION['giohang'][$i][0].'" style ="width: 250px; height: 170;"" alt=""></td>
                             <td>'.$_SESSION['giohang'][$i][1].'</td>
                             <td>'.$_SESSION['giohang'][$i][2].'</td>
                             <td>'.$_SESSION['giohang'][$i][3].'</td>

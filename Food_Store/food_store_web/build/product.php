@@ -1,5 +1,6 @@
 <?php
 require_once ('../../db/dbhelper.php');
+$sanpham ='';
 ?>
 <html lang="en">
   <head>
@@ -40,7 +41,7 @@ require_once ('../../db/dbhelper.php');
                 <li><a class="dropdown-item" onclick="location.href='./product.php#canh'" href="#">Canh</a></li>
                 <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'" href="#">Kimbap</a></li>
                 <li><a class="dropdown-item" onclick="location.href='./product.php#ga'" href="#">Gà</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#my'" href="#">Mì</a></li>
+                <li><a class="dropdown-item" onclick="location.href='./product.php#my'" href="#">Mỳ</a></li>
                 <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'" href="#">Tokbokki</a></li>
                 <li><a class="dropdown-item" onclick="location.href='./product.php#douong'" href="#">Đồ uống</a></li>
               </ul>
@@ -49,9 +50,9 @@ require_once ('../../db/dbhelper.php');
             <li class="nav-item"><a class="nav-link" onclick="location.href='./orderPage.html'"href="#">Đặt hàng</a></li>
           </ul>
 
-          <form class="d-flex">
-            <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
-            <button class="btn0" type="submit">Tìm kiếm</button>
+          <form class="d-flex" method="post" action="search.php" >
+            <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
+            <input type="submit" class="btn0" name="search" value="Tìm kiếm">
           </form>
         </div>
             
@@ -245,7 +246,7 @@ require_once ('../../db/dbhelper.php');
         
         </div>
         <div id="my" class="container-fluid" style="padding:50px 20px;">
-          <h2>Mì</h2>
+          <h2>Mỳ</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
             <?php
