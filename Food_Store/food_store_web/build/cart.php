@@ -76,21 +76,7 @@
             <li class="nav-item"><a class="nav-link active" onclick="location.href='./index.html'" href="#trangchu">Trang chủ</a></li>
             <li class="nav-item"><a class="nav-link" onclick="location.href='./index.html#gioithieu'" href="#gioithieu">Giới thiệu</a></li>
               
-            <div class="dropdown">
-              <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Sản phẩm
-              </button>
-              <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" onclick="location.href='./product.php'">Tất cả</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#com'">Cơm</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'">Canh</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'">Kimbap</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'">Gà</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#my'">Mỳ</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'">Tokbokki</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'">Đồ uống</a></li>
-              </ul>
-            </div>
+            <li class="nav-item"><a class="nav-link active" onclick="location.href='./product.php'" href="#sanpham">Sản phẩm</a></li>
           </ul>
         </div>
             
@@ -108,7 +94,7 @@
 <body>
 <div class="content">
     <div>
-        <form action="bill.php" method="post">
+        <form action="orderPage.html" method="post">
             <div>
                 <h2 style="width: 100%; text-align: center;"><font color="#fa9c21">Giỏ hàng</font></h2>
                 <table class="table table-bordered table-striped table-hover">
@@ -126,7 +112,7 @@
                 </table>
             </div>
             <div style="padding-left: 25%;">
-                <input type="submit" class="btn btn-warning" style="width: 120px;" value="ĐẶT HÀNG" name="dongydathang">
+                <input type="submit" class="btn btn-warning" style="width: 120px;" value="ĐẶT HÀNG" name="dathang">
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -137,7 +123,8 @@
                 <a href="product.php"><input type="button" class="btn btn-warning" value="TIẾP TỤC ĐẶT HÀNG"></a>
             </div>
         </div>
-    </form>   
+    </form>
+    </div>  
 
 </div>
 </body>
