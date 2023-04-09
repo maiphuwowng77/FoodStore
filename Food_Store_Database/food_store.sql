@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Apr 06, 2023 at 08:42 PM
+-- Generation Time: Apr 09, 2023 at 06:21 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -32,8 +32,9 @@ CREATE TABLE `customer` (
   `customerName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `phone` varchar(50) DEFAULT NULL,
   `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `loyalty_card` decimal(10,2) DEFAULT NULL
+  `loyalty_card` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 
 -- --------------------------------------------------------
 
@@ -81,6 +82,7 @@ CREATE TABLE `orderdetails` (
   `orderLineNumber` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+
 -- --------------------------------------------------------
 
 --
@@ -93,8 +95,10 @@ CREATE TABLE `orders` (
   `customerNumber` int(11) NOT NULL,
   `orderPrice` decimal(10,2) NOT NULL,
   `storeId` int(4) NOT NULL DEFAULT 1,
-  `payment_method` varchar(10) NOT NULL
+  `note` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `payment_method` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 
 -- --------------------------------------------------------
 
@@ -131,7 +135,7 @@ CREATE TABLE `products` (
   `productCode` varchar(15) NOT NULL,
   `productName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `productLine` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `price` decimal(10,2) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
   `available` tinyint(1) NOT NULL,
   `productDescription` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `image_path` text DEFAULT NULL
@@ -255,7 +259,7 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerNumber` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customerNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -267,7 +271,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderNumber` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `store`

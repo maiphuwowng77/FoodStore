@@ -37,21 +37,7 @@ if (!empty($_POST)) {
             <li class="nav-item"><a class="nav-link active" onclick="location.href='./index.html'" href="#trangchu">Trang chủ</a></li>
             <li class="nav-item"><a class="nav-link" onclick="location.href='./index.html#gioithieu'" href="#gioithieu">Giới thiệu</a></li>
               
-            <div class="dropdown">
-              <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Sản phẩm
-              </button>
-              <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" onclick="location.href='./product.php'">Tất cả</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#com'">Cơm</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'">Canh</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'">Kimbap</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'">Gà</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#my'">Mỳ</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'">Tokbokki</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'">Đồ uống</a></li>
-              </ul>
-            </div>
+            <li class="nav-item"><a class="nav-link active" onclick="location.href='./product.php'" href="#sanpham">Sản phẩm</a></li>
           
           </ul>
 
@@ -86,17 +72,17 @@ if (!empty($_POST)) {
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
+                        <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
+                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
                               
                               <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                               <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
                               </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
+                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:230px;">
                             
 
                               <input type="hidden" name="tensp" value="'.$item['productName'].'">

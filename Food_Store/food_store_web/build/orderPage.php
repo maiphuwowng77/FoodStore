@@ -1,4 +1,9 @@
-<!doctype html>
+<?php
+  session_start();
+  require_once ('../../db/dbhelper.php');
+  include "thuvien.php";
+  $dondathang = showgiohang();
+?>
 <html lang="en">
   <head>
     <title>The Food Store</title>
@@ -65,6 +70,7 @@
     <div id="wrapper">
         <div id="content-wrapper" class="container d-flex flex-column">
             <div id="content">
+              <form action="bill.php" method="post">
                 <div class="container-fluid">
                     <div class="tabControl">
                         <div class="container">
@@ -75,45 +81,43 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#thanhtoan" role="tab">2. Hình thức thanh toán</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#hoanthanh" role="tab">3. Hoàn thành</a>
-                                </li>
                             </ul>
                         </div>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="khhang" role="tabpanel" aria-labelledby="pills-home-tab">
                                 <div class="tab-content">
                                   <div class="tab-pane fade show active" id="info">
-                                    <form class="row g-3 m-5" action="info.php" method="post">
+                                    <form>
+                                    <div class="row g-3 m-5">
                                       <div class="col-md-6">
                                         <label for="inputname" class="form-label info-title">Họ và tên</label>
-                                        <input type="text" name="hoten" id="hoten" class="form-control form-control-lg" placeholder="Họ và tên">
+                                        <input type="text" name="hoten" id="hoten" class="form-control form-control-lg" placeholder="Họ và tên" required>
                                       </div>
                                       <div class="col-md-6">
                                         <label for="inputphone" class="form-label info-title">Số điện thoại</label>
-                                        <input type="tel" name="sodt" id="sodt" class="form-control form-control-lg" placeholder="Số điện thoại">
+                                        <input type="tel" name="dienthoai" id="dienthoai" class="form-control form-control-lg" placeholder="Số điện thoại" required>
                                       </div>
                                       <div class="col-12">
                                         <label for="inputAddress" class="form-label info-title">Địa chỉ</label>
-                                        <input type="text" name="diachi" id="diachi" class="form-control form-control-lg" placeholder="1234 Main St">
+                                        <input type="text" name="diachi" id="diachi" class="form-control form-control-lg" placeholder="Địa chỉ" required>
                                       </div>
                                       <div class="col-12">
                                         <label for="in" class="form-label info-title">Ghi chú</label>
                                         <textarea name="ghichu" class="form-control form-control-lg" placeholder="Ghi chú" id="floatingTextarea"></textarea>
                                       </div>
+                                    </div>
                                     </form>
                                   </div>
                                 </div>
 
                                 <div class="col-6 col-sm-3 mx-auto text-center" id="btnNext">
-                                    <a class="btn btn-primary btnNext">Tiếp tục thanh toán</a>
+                                    <a class="btn btn-primary btnNext" style="width: 250px;" value="Tiếp tục thanh toán">Tiếp tục thanh toán</a>
                                 </div>
 
                                 <div class="content">
                                   <div>
-                                      <form action="bill.php" method="post">
                                           <div>
-                                              <h2 class="mt-5" style="width: 100%; text-align: center;"><font color="#fa9c21">Giỏ hàng</font></h2>
+                                              <h2 class="mt-5" style="width: 100%; text-align: center;"><font color="#fa9c21">Đơn hàng</font></h2>
                                               <table class="table table-bordered table-striped table-hover">
                                                   <thead class="thead-dark">
                                                       <tr>
@@ -124,36 +128,65 @@
                                                           <th>Số lượng</th>
                                                           <th>Thành tiền (đ)</th>
                                                       </tr>
-                                                                      
+                                                      <?php echo $dondathang; ?>           
                                                   </thead>
                                               </table>
                                           </div>
-                                      </div>
-                                  </form>   
+                                      </div>  
                               
                               </div>
 
                             </div>
                             <div class="tab-pane fade" id="thanhtoan" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                
-                                <div class="order">
-                                  <h4 class="info-title center">Địa chỉ giao hàng</h4>
-                                  <i class="bi bi-person-check" style="font-size: 2rem;"></i>
-                                  <p>xin chào</p>
-                                </div>
-                                <div class="navbuttons">
-                                    <div class="col-6 col-sm-3" id="btnPrevious">
-                                        <a class="btn btn-primary btnPrevious">Previous</a>
-                                    </div>
-                                    <div class="col-6 col-sm-3" id="btnNext">
-                                        <a class="btn btn-primary btnNext">Next</a>
-                                    </div>
-                                </div>
+                                <br><br>
+                                <div><img src ="../img/thanh toan1.jpg" style="width: 950px; padding-left: 18%; text-align: center;"></div>
+                                <div class="form-group" style="padding-left: 20%;">
+                                  <br>
+                                  
+                                  <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="pttt" id ="pttt1" value="Internet Banking">Internet Banking
+                                    </label>
+                                  </div>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;
+                                  <div class="form-check-inline" >
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="pttt" id ="pttt2" value="Thanh toán ATM">Thanh toán ATM
+                                    </label>
+                                  </div>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" checked name="pttt" id ="pttt3" value="Tiền mặt">Tiền mặt
+                                    </label>
+                                  </div> 
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="pttt" id ="pttt4" value="Chuyển khoản">Chuyển khoản
+                                    </label>
+                                  </div> 
+                              
                             </div>
-                            <div class="tab-pane fade" id="hoanthanh" role="tabpanel" aria-labelledby="pills-contact-tab">Thank You</div>
+                            <br><br>
+                            <div style="padding-left: 35%;">
+                                  <a class="btn btn-primary btnPrevious" id="btnPrevious" style="width: 120px;">QUAY LẠI</a>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input type="submit" class="btn btn-primary"style="width: 120px;" value="ĐẶT HÀNG" name="dongydathang">
+                                  
+                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+              </form>
             </div>
         </div>
     </div>

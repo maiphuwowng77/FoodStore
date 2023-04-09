@@ -100,7 +100,7 @@ $sanpham ='';
     
       <br><br></br></br>
       <div class="productlist">
-        <div id="com" class="container-fluid" style="padding:120px 10px;">
+        <div id="com" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
           <h2>Cơm</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -112,17 +112,17 @@ $sanpham ='';
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
+                        <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
+                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
                               
                               <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                               <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
                               </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
+                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:230px;">
                             
 
                               <input type="hidden" name="tensp" value="'.$item['productName'].'">
@@ -136,7 +136,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="canh" class="container-fluid" style="padding:120px 10px;">
+        <div id="canh" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
           <h2>Canh</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -147,17 +147,17 @@ $sanpham ='';
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
+                        <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
+                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
                               
                               <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                               <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
                               </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
+                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:230px;">
                             
 
                               <input type="hidden" name="tensp" value="'.$item['productName'].'">
@@ -170,7 +170,7 @@ $sanpham ='';
             ?> 
           </div>
         </div>
-        <div id="kimbap" class="container-fluid" style="padding:120px 10px;">
+        <div id="kimbap" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
           <h2>Kimbap</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -182,17 +182,17 @@ $sanpham ='';
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
+                        <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
+                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
                               
                               <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                               <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
                               </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
+                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:230px;">
                             
 
                               <input type="hidden" name="tensp" value="'.$item['productName'].'">
@@ -206,7 +206,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="ga" class="container-fluid" style="padding:120px 10px;">
+        <div id="ga" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
           <h2>Gà</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -218,17 +218,17 @@ $sanpham ='';
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
+                        <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
+                              <div style="font-size: 105%; padding-left: 6%">Giá thành: ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
                               
                               <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                               <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
                               </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
+                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:230px;">
                             
 
                               <input type="hidden" name="tensp" value="'.$item['productName'].'">
@@ -242,7 +242,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="my" class="container-fluid" style="padding:120px 10px;">
+        <div id="my" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
           <h2>Mỳ</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -254,17 +254,17 @@ $sanpham ='';
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
+                        <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
+                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
                               
                               <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                               <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
                               </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
+                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:230px;">
                             
 
                               <input type="hidden" name="tensp" value="'.$item['productName'].'">
@@ -278,7 +278,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="tokbokki" class="container-fluid" style="padding:120px 10px;">
+        <div id="tokbokki" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
           <h2>Tokbokki</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -290,17 +290,17 @@ $sanpham ='';
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
+                        <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
+                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
                               
                               <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                               <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
                               </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
+                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:230px;">
                             
 
                               <input type="hidden" name="tensp" value="'.$item['productName'].'">
@@ -314,7 +314,7 @@ $sanpham ='';
           </div>
         
         </div>
-        <div id="douong" class="container-fluid" style="padding:120px 10px;">
+        <div id="douong" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
           <h2>Đồ uống</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -326,17 +326,17 @@ $sanpham ='';
                 foreach ($productList as $item) {
                     echo '
                       <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
+                        <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
+                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
                               
                               <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                               <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
                               </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
+                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:230px;">
                             
 
                               <input type="hidden" name="tensp" value="'.$item['productName'].'">
