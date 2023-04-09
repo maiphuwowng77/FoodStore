@@ -94,7 +94,7 @@
 <body>
 <div class="content">
     <div>
-        <form action="orderPage.html" method="post">
+        <form action="orderPage.php" method="post">
             <div>
                 <h2 style="width: 100%; text-align: center;"><font color="#fa9c21">Giỏ hàng</font></h2>
                 <table class="table table-bordered table-striped table-hover">

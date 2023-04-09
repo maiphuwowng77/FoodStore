@@ -229,7 +229,7 @@
                   <a  onclick="location.href='./product.php'" href="#">Sản phẩm</a>
                 </li>
                 <li class="item">
-                  <a onclick="location.href='./orderPage.html'" href="#">Đặt hàng</a>
+                  <a onclick="location.href='./product.php'" href="#">Đặt hàng</a>
                 </li>
               </ul>
             </div>
