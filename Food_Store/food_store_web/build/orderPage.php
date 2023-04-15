@@ -53,7 +53,6 @@
             
         <div class="icon px-1">
           <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="70" height="70" alt="">
-          <span class="badge bg-danger">0</span>
         </div>
 
         <div class="icon px-1">
