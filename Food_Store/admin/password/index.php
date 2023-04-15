@@ -1,33 +1,25 @@
-<?php
-require_once ('../../db/dbhelper.php');
-?>
 <!DOCTYPE html>
-<html>
-
 <head>
-	<title>Quản Lý</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<!--tableForm-->
-    <!----======== CSS ======== -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!----======== CSS ======== -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!----===== Boxicons CSS ===== -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <!----======== CSS ======== -->
 	<link rel="stylesheet" href="../index.css">
-	<link rel="stylesheet" href="./order.css">
+	<link rel="stylesheet" href="./password.css">
 	<!----===== Boxicons CSS ===== -->
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  
+  <title>Quản lý</title>
 </head>
-
 <body>
-<nav>
-<div class="sidebar">
+    <nav>
+    <div class="sidebar">
             <div class="admin">
                 <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
                 <strong class="admin-name">
@@ -56,7 +48,7 @@ require_once ('../../db/dbhelper.php');
                         </a>
                     </li>
                     <li class="list">
-                        <a href="" class="nav-link active">
+                        <a href="../order" class="nav-link">
                             <i class='bx bx-cart-alt icon' ></i>
                             <span class="link">Quản lý đơn hàng</span>
                         </a>
@@ -68,7 +60,7 @@ require_once ('../../db/dbhelper.php');
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../password" class="nav-link">
+                        <a href="" class="nav-link active">
                             <i class='bx bxs-key icon'></i>
                             <span class="link">Đổi mật khẩu</span>
                         </a>
@@ -83,60 +75,4 @@ require_once ('../../db/dbhelper.php');
             </div>
         </div>
     </nav>
-
-
-
 </body>
-	<div class="container">
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h2 class="text-center">QUẢN LÝ ĐƠN HÀNG</h2>
-			</div>
-			<div class="panel-body">
-				<table class="table table-bordered table-striped table-hover">
-					<thead class="thead-dark">
-                    <colgroup>
-							<col width="50" span="">
-							<col width="170" span="1">
-							<col width="170" span="1">
-							<col width="170" span="1">
-							<col width="150" span="1">
-							<col width="150" span="1">
-							<col width="250" span="1">
-						</colgroup>
-						<tr>
-							<th>STT</th>
-							<th>Mã Đơn Hàng</th>
-							<th>Ngày Đặt</th>
-							<th>Mã Khách Hàng</th>
-							<th>Giá Đơn</th>
-                            <th>Mã Cửa Hàng</th>
-							<th>Phương thức thanh toán</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-                        //Lay danh sach san pham tu database
-                        $sql = 'select * from orders';
-                        $productList = executeResult($sql);
-
-                        $index = 1;
-                        foreach ($productList as $item) {
-	                        echo '<tr>
-										<td>' . ($index++) . '</td>
-                                        <td>' . $item['orderNumber'] . '</td>
-										<td>' . $item['orderDate'] . '</td>
-										<td>' . $item['customerNumber'] . '</td>
-										<td>' . $item['orderPrice'] . '</td>
-										<td>' . $item['storeId'] . '</td>
-										<td>' . $item['payment_method'] . '</td>	
-									</tr>'; 
-                        }
-                        ?>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-
-</html>
