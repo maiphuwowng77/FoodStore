@@ -1,0 +1,78 @@
+.navbar-header {
+  font-size: 2rem;
+  color: black;
+  font-family: 'Lobster', cursive;
+}
+
+#body {
+  background-color: rgb(247, 244, 244);
+}
+
+.menu {
+  width: 200px;
+  position: fixed; /* Đảm bảo thanh công cụ cố định ở vị trí khi cuộn trang */
+  top: 40%; /* Đặt vị trí ban đầu của thanh công cụ ở giữa trang */
+  left: 50px; /* Đặt vị trí của thanh công cụ ở bên trái trang */
+  transform: translateY(-50%); /* Điều chỉnh vị trí thanh công cụ theo chiều dọc */
+  /*background-color: white; /* Đặt màu nền của thanh công cụ */
+  padding: 0px; /* Đặt padding cho thanh công cụ */
+}
+
+.navbar-item {
+  width: 200px;
+  height: 50px;
+  border: 1px whitesmoke solid;
+border-collapse: collapse;
+text-align: left;
+}
+.navbar-link {
+  display: block; /* Hiển thị liên kết theo dạng khối */
+  margin-bottom: 10px; /* Đặt khoảng cách giữa các nút */
+  text-decoration: none; /* Loại bỏ đường gạch chân của liên kết */
+  color: #000; /* Đặt màu chữ cho các liên kết */
+}
+#image-menu {
+  width: 20px;
+  height: 20px;
+  left: 50px;
+}
+#user-image {
+  text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+#body {
+  background-color: #f8f9fa;
+}
+.navbar-nav {
+  position: fixed;
+  top: 20%;
+  left: 50px;
+  width: 150px;
+}
+
+.navbar-item {
+  width: 200px;
+  height: 50px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.navbar-link {
+  display: block; /* Hiển thị liên kết theo dạng khối */
+  margin-bottom: 10px; /* Đặt khoảng cách giữa các nút */
+  text-decoration: none; /* Loại bỏ đường gạch chân của liên kết */
+}
+#image-menu {
+  width: 20px;
+  height: 20px;
+}
+#user-image {
+  text-align: justify;
+}

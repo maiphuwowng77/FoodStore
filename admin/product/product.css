@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    margin-top: 150px;
+    margin-left: 330px;
+    font-size: 0.8rem;
+}
+tr {
+    text-align: center;
+}
+th {
+    background-color: lightskyblue;
+}
+.panel .panel-heading {
+    padding-bottom: 40px;   
+}
+button {
+    padding-left: 0px;
+    font-size: 0.8rem;
+    width: auto;
+    text-align: center;
+    border: none; 
+}
+.search{
+    height: 40px;
+    width: 80%;
+    border-radius: 60px;
+    outline: none;
+    margin-right: -35px;
+    font-family: 'Rubik', sans-serif;
+    border: 2px solid rgb(248, 26, 92);
+}
+.btn0{
+    height: 40px;
+    width: 40%;
+    outline: none;
+    border: none;
+    background: rgb(248, 26, 92);
+    color: white;
+    border-radius: 60px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}

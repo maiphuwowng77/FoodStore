@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    margin-top: 150px;
+    margin-left: 20%;
+    margin-right: 0px;
+    font-size: 0.8rem;
+}
+.container .panel-heading {
+    margin-bottom: 40px;    
+}
+tr {
+    text-align: center;
+}
+th {
+    background-color: lightskyblue;
+}
+
+button {
+    padding-left: 0px;
+    font-size: 0.9rem;
+    width: auto;
+    text-align: center;
+    border: none; 
+}
+.form-group {
+    width: 700px;
+    align-self: start;
+}
+
+

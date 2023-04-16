@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    margin-top: 150px;
+    margin-left: 330px;
+    margin-right: 0px;
+}
+.container .panel-heading {
+    padding-bottom: 40px;    
+}
+tr {
+    text-align: center;
+}
+th {
+    background-color: lightskyblue;
+}
+
+button {
+    padding-left: 0px;
+    font-size: 0.9rem;
+    width: auto;
+    text-align: center;
+    border: none; 
+}
+
