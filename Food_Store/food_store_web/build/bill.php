@@ -5,19 +5,17 @@
     $ttkh = "";
     $ttghang = "";
   if(isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
-    //tong hoa don
-    $total = tongdonhang();
-    // lay thong tin 
+    // lay thong tin kh để tao ma kh
     $customerName = $_POST['hoten'];
     $address = $_POST['diachi'];
     $phone = $_POST['dienthoai'];
-    $note = $_POST['ghichu'];
-    $payment_method =$_POST['pttt'];
+    $email = $_POST['email'];
     //insert khach hang neu chua co
-    $customerNumber = taokhachhang($customerName,$address,$phone,$total);
+    $customerNumber = taokhachhang($customerName,$address,$phone,$email);
 
     // lay thong tin don hang de tao order
-    $orderNumber = taodonhang($customerNumber,$total,$note,$payment_method);
+    $total = tongdonhang();
+    $orderNumber = taodonhang($customerNumber,$total);
 
     // lay thong tin don hang de tao orderdetail
     for($i=0; $i < sizeof($_SESSION['giohang']); $i++) {
@@ -29,16 +27,12 @@
     }
 
     // show don hang
-    $ttkh = '<img src="../img/thanhcong.png" style="display: block; margin-left: auto; margin-right:auto; width:100px; height:100px:">
-          <h4 style="text-align: center; color: rgb(0, 128, 0);">CHÚC MỪNG BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG</h4>
-          <br>
-          <div style="padding-left: 3%; color: rgb(0, 128, 0);">Quý khách đã đặt thành công đơn hàng có mã '.$orderNumber.'. Xin cảm ơn quý khách đã tin tưởng và mua hàng tại FoodStore. Nhân viên vận chuyển sẽ sớm liên hệ với quý khách khi đơn hàng được giao đến. Chúc quý khách có bữa ăn ngon miệng!</div>
-          <br><br>
-          <h2 style="width: 100%; text-align: center; color: rgb(0, 128, 0);">Thông tin khách hàng</h2>
-          <div style="padding-left:15%">
-            <table class="table table-bordered table-striped table-hover" style="width: 85%;">
+    $ttkh = '<h5>Bạn đã tạo thành công đơn hàng.</h5>
+          <h2>Mã đơn hàng: '.$orderNumber.'</h2>
+          <h2 style="width: 100%; text-align: center;">Thông tin khách hàng</h2>
+          <table class="table table-bordered table-striped table-hover">
                         <tr>
-                            <td width="25%">Họ tên</td>
+                            <td width="20%">Họ tên</td>
                             <td>'.$customerName.'</td>
                         </tr>
                         <tr>
@@ -50,15 +44,10 @@
                             <td>'.$phone.'</td>
                         </tr>
                         <tr>
-                            <td>Ghi chú</td>
-                            <td>'.$note.'</td>
+                            <td>Email</td>
+                            <td>'.$email.'</td>
                         </tr>
-                        <tr>
-                            <td>Phương thức thanh toán</td>
-                            <td>'.$payment_method.'</td>
-                        </tr>
-                    </table>
-          </div><br>';
+                    </table>';
 
         $ttghang = showgiohang();
     
@@ -126,7 +115,7 @@
       </div>
     </nav>
   </header>
-<br><br><br></br></br></br> 
+
 <div class="content">
     <div>
             <div class="container-fluid mt-3">
@@ -134,7 +123,7 @@
                     
             </div>
             <div>
-                <h2 style="width: 100%; text-align: center; color: rgb(0, 128, 0);">Chi tiết đơn hàng</h2>
+                <h2 style="width: 100%; text-align: center;">Giỏ hàng</h2>
                 <table class="table table-bordered table-striped table-hover">
                     <thead class="thead-dark">
                         <tr>

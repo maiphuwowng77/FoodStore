@@ -1,16 +1,6 @@
 <?php
 require_once ('../../db/dbhelper.php');
 ?>
-<?php
-require_once ('../../db/dbhelper.php');
-$sanpham ='';
-if (!empty($_POST)) {
-	if (isset($_POST['search'])) {
-	  $employeeName = $_POST['sanpham'];  
-	}
-  }
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,65 +17,107 @@ if (!empty($_POST)) {
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<!--tableForm-->
+	<!----======== CSS ======== -->
+	<link rel="stylesheet" href="../index.css">
+	<link rel="stylesheet" href="./employee.css">
+	<!----===== Boxicons CSS ===== -->
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-light navbar-light">
-		<!-- Brand/logo -->
-		<a class="navbar-brand" href="#">
-			<img src="../../food_store_web/img/Logo.png" alt="logo" style="max-width:50px;">
-		</a>
-
-		<!-- Links -->
-		<ul class="nav nav-tabs">
-			<li class="nav-item">
-				<a class="nav-link active" href="#">Quản Lý Nhân Viên</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../product">Quản Lý Sản Phẩm</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../order">Quản Lý Đơn hàng</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../customer">Quản Lý Khách Hàng</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../admin.php">Trang chủ</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../../food_store_web/build/index.html">Đăng xuất</a>
-			</li>
-		</ul>
-	</nav>
+<nav>
+<div class="sidebar">
+            <div class="admin">
+                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <strong class="admin-name">
+                     Admin
+                </strong>
+            </div>
+            <hr width="300px" color="#e8e5e5"/>
+            <div class="sidebar-content">
+                <ul class="lists">
+                    <li class="list">
+                        <a href="" class="nav-link">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="link">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="" class="nav-link active">
+                            <i class='bx bx-user icon' ></i>
+                            <span class="link">Quản lý nhân viên</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../product" class="nav-link">
+                            <i class='bx bxs-bowl-hot icon' ></i>
+                            <span class="link">Quản lý sản phẩm</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../order" class="nav-link">
+                            <i class='bx bx-cart-alt icon' ></i>
+                            <span class="link">Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../customer" class="nav-link">
+                            <i class='bx bxs-group icon' ></i>
+                            <span class="link">Quản lý khách hàng</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../password" class="nav-link">
+                            <i class='bx bxs-key icon'></i>
+                            <span class="link">Đổi mật khẩu</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../../food_store_web/build/user.php" class="nav-link">
+                            <i class='bx bx-log-out icon' ></i>
+                            <span class="link">Đăng xuất</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 	<div class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h2 class="text-center">Quản Lý Nhân Viên</h2>
+				<h2 class="text-center">QUẢN LÝ NHÂN VIÊN</h2>
 			</div>
 			<div class="panel-body">
 				<a href="add.php">
-					<button class="btn btn-success" style="margin-bottom: 15px;">Thêm Nhân viên</button>
+					<button class="add-button btn btn-success" style="margin-bottom: 15px;">Thêm Nhân viên</button>
 				</a>
-				<form class="d-flex" method="post" action="search.php" >
-                 <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
-                <input type="submit" class="btn0" name="search" value="Tìm kiếm">
-                </form><br>
 				<table class="table table-bordered table-striped table-hover">
-					<thead class="thead-dark">
+					<thead class="thead-light">
+						<colgroup>
+							<col width="30" span="1">
+							<col width="140" span="1">
+							<col width="90" span="1">
+							<col width="110" span="1">
+							<col width="150" span="2">
+							<col width="70" span="1">
+							<col width="80" span="1">
+							<col width="90" span="1">
+							<col width="120" span="1">
+							<col width="45" span="2">
+						
+						</colgroup>
 						<tr>
-							<th width="30px">STT</th>	
-							<th width="150px">Tên Nhân Viên</th>
-							<th width="100px">Giới Tính</th>
-							<th width="100px">Ngày Sinh</th>
-							<th width="150px">Email</th>
-							<th width="150px">Số Điện Thoại</th>
-							<th width="50px">Cơ sở</th>
-							<th width="50px">Quản lý</th>
-							<th width="100px">Nghiệp vụ</th>
-							<th width="100px">Ngày bắt đầu</th>
-							<th width="40px"></th>
-							<th width="40px"></th>
+							<th>STT</th>
+							<th>Tên Nhân Viên</th>
+							<th>Giới Tính</th>
+							<th>Ngày Sinh</th>
+							<th>Email</th>
+							<th>Số Điện Thoại</th>
+							<th>Cơ sở</th>
+							<th>Quản lý</th>
+							<th>Nghiệp vụ</th>
+							<th>Ngày bắt đầu</th>
+							<th colspan="2">Tuỳ chọn</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -108,10 +140,12 @@ if (!empty($_POST)) {
 										<td>'.$item['jobTitle'].'</td>
 										<td>'.$item['start_date'].'</td>
 										<td>
-											<a href="add.php?employeeNumber='.$item['employeeNumber'].'"><button class="btn btn-warning">Sửa</button></a>
+											<a href="add.php?employeeNumber='.$item['employeeNumber'].'"><button class="edit-button bx bx-edit"></button></a>
 										</td>
 										<td>
-											<button class="btn btn-danger" onclick="deleteCategory('.$item['employeeNumber'].')">Xoá</button>
+											<button class="delete-button bx bx-trash" onclick="deleteCategory('.$item['employeeNumber'].')">
+												
+											</button>
 										</td>
 									</tr>';
 						}

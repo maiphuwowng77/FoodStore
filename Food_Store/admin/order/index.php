@@ -18,37 +18,71 @@ require_once ('../../db/dbhelper.php');
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<!--tableForm-->
+    <!----======== CSS ======== -->
+	<link rel="stylesheet" href="../index.css">
+	<link rel="stylesheet" href="./order.css">
+	<!----===== Boxicons CSS ===== -->
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm bg-light navbar-light">
-		<!-- Brand/logo -->
-		<a class="navbar-brand" href="#">
-			<img src="../../food_store_web/img/Logo.png" alt="logo" style="max-width:50px;">
-		</a>
-
-		<!-- Links -->
-		<ul class="nav nav-tabs">
-			<li class="nav-item">
-				<a class="nav-link" href="../employee">Quản Lý Nhân Viên</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../product">Quản Lý Sản Phẩm</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link active" href="#">Quản Lý Đơn hàng</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../customer">Quản Lý Khách Hàng</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../admin.php">Trang chủ</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../../food_store_web/build/index.html">Đăng xuất</a>
-			</li>
-		</ul>
-	</nav>
+<nav>
+<div class="sidebar">
+            <div class="admin">
+                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <strong class="admin-name">
+                     Admin
+                </strong>
+            </div>
+            <hr width="300px" color="#e8e5e5"/>
+            <div class="sidebar-content">
+                <ul class="lists">
+                    <li class="list">
+                        <a href="" class="nav-link">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="link">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../employee" class="nav-link">
+                            <i class='bx bx-user icon' ></i>
+                            <span class="link">Quản lý nhân viên</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../product" class="nav-link">
+                            <i class='bx bxs-bowl-hot icon' ></i>
+                            <span class="link">Quản lý sản phẩm</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="" class="nav-link active">
+                            <i class='bx bx-cart-alt icon' ></i>
+                            <span class="link">Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../customer" class="nav-link">
+                            <i class='bx bxs-group icon' ></i>
+                            <span class="link">Quản lý khách hàng</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../password" class="nav-link">
+                            <i class='bx bxs-key icon'></i>
+                            <span class="link">Đổi mật khẩu</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../../food_store_web/build/user.php" class="nav-link">
+                            <i class='bx bx-log-out icon' ></i>
+                            <span class="link">Đăng xuất</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
 
@@ -56,11 +90,20 @@ require_once ('../../db/dbhelper.php');
 	<div class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h2 class="text-center">Quản Lý Đơn Hàng</h2>
+				<h2 class="text-center">QUẢN LÝ ĐƠN HÀNG</h2>
 			</div>
 			<div class="panel-body">
 				<table class="table table-bordered table-striped table-hover">
 					<thead class="thead-dark">
+                    <colgroup>
+							<col width="50" span="">
+							<col width="170" span="1">
+							<col width="170" span="1">
+							<col width="170" span="1">
+							<col width="150" span="1">
+							<col width="150" span="1">
+							<col width="250" span="1">
+						</colgroup>
 						<tr>
 							<th>STT</th>
 							<th>Mã Đơn Hàng</th>
@@ -68,8 +111,7 @@ require_once ('../../db/dbhelper.php');
 							<th>Mã Khách Hàng</th>
 							<th>Giá Đơn</th>
                             <th>Mã Cửa Hàng</th>
-							<th width="40px">Done</th>
-						
+							<th>Phương thức thanh toán</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -87,9 +129,7 @@ require_once ('../../db/dbhelper.php');
 										<td>' . $item['customerNumber'] . '</td>
 										<td>' . $item['orderPrice'] . '</td>
 										<td>' . $item['storeId'] . '</td>
-										<td><input type="checkbox" id="vehicle1" name="vehicle1">
-                                        <label for="vehicle1"></label><br></td>
-									    
+										<td>' . $item['payment_method'] . '</td>	
 									</tr>'; 
                         }
                         ?>
@@ -99,21 +139,4 @@ require_once ('../../db/dbhelper.php');
 		</div>
 	</div>
 
-	<script type="text/javascript">
-		function deleteCategory(orderNumber) {
-			var option = confirm('Bạn có chắc chắn muốn xoá đơn hàng này không?')
-			if(!option) {
-				return;
-			}
-
-			console.log(orderNumber)
-			//ajax - lenh post
-			$.post('ajax.php', {
-				'orderNumber': orderNumber,
-				'action': 'delete'
-			}, function(data) {
-				location.reload()
-			})
-		}
-	</script>
 </html>
