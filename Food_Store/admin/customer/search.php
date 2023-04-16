@@ -84,7 +84,7 @@ if (!empty($_POST)) {
 					<tbody>
 						<?php
                         //Lay danh sach san pham tu database
-                        $sql = 'select * from customer';
+                        $sql = 'select * from customer where customerName LIKE "%'.$customerName.'%"';
                         $productList = executeResult($sql);
 
                         $index = 1;

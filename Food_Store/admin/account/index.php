@@ -36,7 +36,7 @@ if(isset($_POST['username'])){
 			</div>
 
 			<div class="container" style="background-color:#f1f1f1">
-				<button type="button" onclick="location.href='../../food_store_web/build/user.php'" class="cancelbtn">Cancel</button>
+				<button type="button" onclick="location.href='../../food_store_web/build/index.html'" class="cancelbtn">Cancel</button>
 			</div>
 			</form>
 	</body>

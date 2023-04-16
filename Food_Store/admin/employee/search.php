@@ -1,14 +1,15 @@
 <?php
 require_once ('../../db/dbhelper.php');
 ?>
+
 <?php
 require_once ('../../db/dbhelper.php');
 $sanpham ='';
 if (!empty($_POST)) {
-	if (isset($_POST['search'])) {
-	  $employeeName = $_POST['sanpham'];  
-	}
+  if (isset($_POST['search'])) {
+    $employeeName = $_POST['sanpham'];  
   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +54,7 @@ if (!empty($_POST)) {
 				<a class="nav-link" href="../admin.php">Trang chủ</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="../../food_store_web/build/index.html">Đăng xuất</a>
+				<a class="nav-link" href="../../food_store_web/build/user.php">Đăng xuất</a>
 			</li>
 		</ul>
 	</nav>
@@ -68,13 +69,13 @@ if (!empty($_POST)) {
 					<button class="btn btn-success" style="margin-bottom: 15px;">Thêm Nhân viên</button>
 				</a>
 				<form class="d-flex" method="post" action="search.php" >
-                 <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
-                <input type="submit" class="btn0" name="search" value="Tìm kiếm">
-                </form><br>
+            <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
+            <input type="submit" class="btn0" name="search" value="Tìm kiếm">
+          </form><br>
 				<table class="table table-bordered table-striped table-hover">
 					<thead class="thead-dark">
 						<tr>
-							<th width="30px">STT</th>	
+							<th width="30px">STT</th>
 							<th width="150px">Tên Nhân Viên</th>
 							<th width="100px">Giới Tính</th>
 							<th width="100px">Ngày Sinh</th>
@@ -91,7 +92,7 @@ if (!empty($_POST)) {
 					<tbody>
 						<?php
 						//Lay danh sach nhan vien tu database
-						$sql          = 'select * from employees';
+						$sql          = 'select * from employees where employeeName LIKE "%'.$employeeName.'%"';
 						$employeeList = executeResult($sql);
 
 						$index = 1;
