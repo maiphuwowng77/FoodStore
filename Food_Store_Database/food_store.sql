@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Apr 09, 2023 at 06:21 PM
+-- Generation Time: Apr 16, 2023 at 06:55 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `food_store`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `username` varchar(30) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`username`, `password`) VALUES
+('admin', '123456');
 
 -- --------------------------------------------------------
 
@@ -60,13 +78,13 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employeeNumber`, `employeeName`, `gender`, `birthday`, `email`, `phone`, `storeId`, `managerId`, `jobTitle`, `start_date`) VALUES
-(1, 'Nguyen Minh Ngoc', 'Female', '2003-04-15', 'minhngoc@gmail.com', '+84 359 683 221', 1, 1, 'Manager', '2022-11-01'),
-(2, 'Luong Mai Phuong', 'Female', '2003-07-07', 'luongmaiphuong772003@gmail.com', '+84 989 861 287', 1, 1, 'Cashier', '2022-11-01'),
-(3, 'Tran Dieu Anh', 'Female', '2003-09-13', 'minhtam@gmail.com', '+84 989 083 107', 1, 1, 'Chef', '2022-11-01'),
-(4, 'Dinh Mai Linh', 'Female', '2003-07-25', 'mailinh@gmail.com', '+84 855 222 771', 1, 1, 'Chef', '2022-11-01'),
-(5, 'Phan Thi Nha Phuong', 'Female', '2003-03-28', 'thanhhien@gmail.com', '+84 966 712 698', 1, 1, 'Packer', '2022-11-01'),
-(6, 'Vu Quoc Trung', 'Male', '2003-12-28', 'quoctrung@gmail.com', '+84 867 021 999', 1, 1, 'Packer', '2022-11-01'),
-(7, 'Bui Truong Quoc Bao', 'Male', '2003-11-21', 'quocbao@gmail.com', '+84 867 731 103', 1, 1, 'Janitor', '2022-11-01');
+(1, 'Nguyễn Minh Ngọc', 'Female', '2003-04-15', 'minhngoc@gmail.com', '+84 359 683 221', 1, 1, 'Manager', '2022-11-01'),
+(2, 'Lương Mai Phương', 'Female', '2003-07-07', 'luongmaiphuong772003@gmail.com', '+84 989 861 287', 1, 1, 'Cashier', '2022-11-01'),
+(3, 'Trần Diệu Anh', 'Female', '2003-09-13', 'minhtam@gmail.com', '+84 989 083 107', 1, 1, 'Chef', '2022-11-01'),
+(4, 'Đinh Mai Linh', 'Female', '2003-07-25', 'mailinh@gmail.com', '+84 855 222 771', 1, 1, 'Chef', '2022-11-01'),
+(5, 'Phan Thị Nhã Phương', 'Female', '2003-03-28', 'thanhhien@gmail.com', '+84 966 712 698', 1, 1, 'Packer', '2022-11-01'),
+(6, 'Vũ Quốc Trung', 'Male', '2003-12-28', 'quoctrung@gmail.com', '+84 867 021 999', 1, 1, 'Packer', '2022-11-01'),
+(7, 'Bùi Trường Quốc Bảo', 'Male', '2003-11-21', 'quocbao@gmail.com', '+84 867 731 103', 1, 1, 'Janitor', '2022-11-01');
 
 -- --------------------------------------------------------
 
@@ -82,6 +100,30 @@ CREATE TABLE `orderdetails` (
   `orderLineNumber` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `orderdetails`
+--
+
+INSERT INTO `orderdetails` (`orderNumber`, `productCode`, `quantity`, `priceEach`, `orderLineNumber`) VALUES
+(1, 'C_004', 1, '40000.00', 1),
+(2, 'C_002', 1, '70000.00', 1),
+(3, 'CA_003', 1, '40000.00', 1),
+(4, 'KB_003', 1, '40000.00', 1),
+(5, 'G_003', 1, '60000.00', 1),
+(6, 'M_003', 1, '40000.00', 1),
+(7, 'CA_004', 1, '60000.00', 1),
+(7, 'T_001', 1, '35000.00', 2),
+(8, 'CA_002', 1, '40000.00', 1),
+(9, 'DU_003', 1, '25000.00', 2),
+(9, 'M_002', 1, '50000.00', 1),
+(11, 'CA_004', 1, '60000.00', 2),
+(11, 'C_002', 1, '70000.00', 1),
+(12, 'KB_004', 1, '40000.00', 1),
+(13, 'M_001', 1, '40000.00', 1),
+(14, 'C_003', 1, '40000.00', 1),
+(15, 'C_003', 1, '40000.00', 1),
+(15, 'DU_001', 1, '70000.00', 3),
+(15, 'M_002', 1, '50000.00', 2);
 
 -- --------------------------------------------------------
 
@@ -96,11 +138,11 @@ CREATE TABLE `orders` (
   `orderPrice` decimal(10,2) NOT NULL,
   `storeId` int(4) NOT NULL DEFAULT 1,
   `note` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `payment_method` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+  `payment_method` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `status` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Đang chuẩn bị'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `productline`
@@ -177,6 +219,7 @@ INSERT INTO `products` (`productCode`, `productName`, `productLine`, `price`, `a
 ('T_004', 'Tokbokki xào bò', 'Tokbokki', '45000.00', 1, '', 'http://localhost/Food_Store/food_store_web/img/menu/Tokbokki xao bo.jpg');
 
 -- --------------------------------------------------------
+
 
 --
 -- Table structure for table `store`
