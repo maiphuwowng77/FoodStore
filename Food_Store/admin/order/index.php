@@ -103,6 +103,7 @@ require_once ('../../db/dbhelper.php');
 							<col width="150" span="1">
 							<col width="150" span="1">
 							<col width="250" span="1">
+                            <col width="50" span="1">
 						</colgroup>
 						<tr>
 							<th>STT</th>
@@ -112,6 +113,7 @@ require_once ('../../db/dbhelper.php');
 							<th>Giá Đơn</th>
                             <th>Mã Cửa Hàng</th>
 							<th>Phương thức thanh toán</th>
+                            <th width="40px">Done</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -129,7 +131,9 @@ require_once ('../../db/dbhelper.php');
 										<td>' . $item['customerNumber'] . '</td>
 										<td>' . $item['orderPrice'] . '</td>
 										<td>' . $item['storeId'] . '</td>
-										<td>' . $item['payment_method'] . '</td>	
+										<td>' . $item['payment_method'] . '</td>
+                                        <td><input type="checkbox" id="vehicle1" name="vehicle1">
+                                        <label for="vehicle1"></label><br></td>	
 									</tr>'; 
                         }
                         ?>

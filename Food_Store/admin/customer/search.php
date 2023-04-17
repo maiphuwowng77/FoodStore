@@ -1,19 +1,19 @@
 <?php
 require_once ('../../db/dbhelper.php');
 ?>
-
 <?php
 require_once ('../../db/dbhelper.php');
 $sanpham ='';
 if (!empty($_POST)) {
 	if (isset($_POST['search'])) {
-	  $producName = $_POST['sanpham'];  
+	  $customerName = $_POST['sanpham'];  
 	}
   }
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Quản Lý</title>
 	<!-- Latest compiled and minified CSS -->
@@ -30,13 +30,14 @@ if (!empty($_POST)) {
 	<!--tableForm-->
 	<!----======== CSS ======== -->
 	<link rel="stylesheet" href="../index.css">
-	<link rel="stylesheet" href="./product.css">
+	<link rel="stylesheet" href="../customer.css">
 	<!----===== Boxicons CSS ===== -->
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
+<body>
 <nav>
-<div class="sidebar">
+        <div class="sidebar">
             <div class="admin">
                 <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
                 <strong class="admin-name">
@@ -59,7 +60,7 @@ if (!empty($_POST)) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="" class="nav-link active">
+                        <a href="../product" class="nav-link">
                             <i class='bx bxs-bowl-hot icon' ></i>
                             <span class="link">Quản lý sản phẩm</span>
                         </a>
@@ -71,7 +72,7 @@ if (!empty($_POST)) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../customer" class="nav-link">
+                        <a href="" class="nav-link active">
                             <i class='bx bxs-group icon' ></i>
                             <span class="link">Quản lý khách hàng</span>
                         </a>
@@ -92,95 +93,69 @@ if (!empty($_POST)) {
             </div>
         </div>
     </nav>
-
-
-
-</body>
 	<div class="container">
-		<div class="panel panel-primary">
+        <div class="panel panel-primary">
 			<div class="panel-heading">
-				<h2 class="text-center">QUẢN LÝ SẢN PHẨM</h2>
+				<h2 class="text-center">QUẢN LÝ KHÁCH HÀNG</h2>
 			</div>
-			<div class="panel-body">
-				<a href="add.php">
-					<button class="btn btn-success" style="margin-bottom: 15px;">Thêm Sản phẩm</button>
-				</a>
-				<form class="d-flex" method="post" action="search.php" >
+            <form class="d-flex" method="post" action="search.php" >
                  <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
                 <input type="submit" class="btn0" name="search" value="Tìm kiếm">
                 </form><br>
+			<div class="panel-body">
 				<table class="table table-bordered table-striped table-hover">
-					<thead class="thead-dark">
-					<colgroup>
-							<col width="50" span="1">
-							<col width="120" span="1">
-							<col width="150" span="2">
-							<col width="200" span="1">
-							<col width="240" span="1">
-							<col width="100" span="1">
-							<col width="100" span="1">
-							<col width="50px" span="2">
+					<thead class="thead-light">
+						<colgroup>
+							<col width="100" span="">
+							<col width="220" span="1">
+							<col width="270" span="1">
+							<col width="190" span="1">
+							<col width="300" span="1">
+							<col width="170" span="1">
+							<col width="170" span="1">
 						</colgroup>
+					
 						<tr>
 							<th>STT</th>
-							<th>Mã Sản Phẩm</th>
-							<th>Dòng Sản Phẩm</th>
-							<th>Tên Sản Phẩm</th>
-							<th>Hình Ảnh</th>							
-							<th>Mô tả</th>
-							<th>Giá</th>	
-							<th>Tình trạng</th>						
-							<th colspan="2">Tùy chọn</th>
-						
+							<th>Mã Khách Hàng </th>
+							<th>Tên Khách Hàng</th>
+							<th>Số Điện Thoại</th>
+							<th>Địa chỉ</th>
+							<th>Email</th>
+							<th>Thẻ tích điểm</th>
 						</tr>
+						<style>
+							tr {
+								text-align: center;
+							}
+							th {
+								background-color: lightskyblue;
+							}
+						</style>
 					</thead>
 					<tbody>
 						<?php
                         //Lay danh sach san pham tu database
-                        $sql = 'select * from products';
+                        $sql = 'select * from customer where customerName LIKE "%'.$customerName.'%"';
                         $productList = executeResult($sql);
 
                         $index = 1;
                         foreach ($productList as $item) {
 	                        echo '<tr>
 										<td>' . ($index++) . '</td>
-                                        <td>' . $item['productCode'] . '</td>
-										<td>' . $item['productLine'] . '</td>
-										<td>' . $item['productName'] . '</td>
-										<td><img src="' . $item['image_path'] . '"style="max-width: 150px"/></td>										
-										<td>' . $item['productDescription'] . '</td>
-										<td>' . $item['price'] . '</td>		
-										<td>' . $item['available'] . '</td>									
-										<td>
-											<a href="add.php?productCode=' . $item['productCode'] . '"><button class="bx bx-edit"></button></a>
-										</td>
-										<td>
-											<button class="bx bx-trash" onclick="deleteCategory(\''.$item['productCode'].'\')"></button>
-										</td>
+                                        <td>' . $item['customerNumber'] . '</td>
+										<td>' . $item['customerName'] . '</td>
+										<td>' . $item['phone'] . '</td>
+										<td>' . $item['address'] . '</td>
+										<td>' . $item['email'] . '</td>	
+										<td>' . $item['loyal_card'] . '</td>										
 									</tr>';
                         }
                         ?>
 					</tbody>
 				</table>
-			</div>
-		</div>
+			
 	</div>
+</body>
 
-	<script type="text/javascript">
-		function deleteCategory(productCode) {
-			var option = confirm('Bạn có chắc chắn muốn xoá sản phẩm này không?')
-			if (!option) {
-				return;
-			}
-
-			console.log(productCode)
-			//ajax - lenh post
-			$.post('ajax.php', {
-				'productCode': productCode,
-				'action': 'delete'
-			}, function (data) {
-				location.reload()
-			})
-		}
-	</script>
 </html>

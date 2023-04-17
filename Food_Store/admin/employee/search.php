@@ -1,17 +1,15 @@
 <?php
 require_once ('../../db/dbhelper.php');
 ?>
-
 <?php
 require_once ('../../db/dbhelper.php');
 $sanpham ='';
 if (!empty($_POST)) {
 	if (isset($_POST['search'])) {
-	  $producName = $_POST['sanpham'];  
+	  $employeeName = $_POST['sanpham'];  
 	}
   }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,11 +28,11 @@ if (!empty($_POST)) {
 	<!--tableForm-->
 	<!----======== CSS ======== -->
 	<link rel="stylesheet" href="../index.css">
-	<link rel="stylesheet" href="./product.css">
+	<link rel="stylesheet" href="./employee.css">
 	<!----===== Boxicons CSS ===== -->
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
+<body>
 <nav>
 <div class="sidebar">
             <div class="admin">
@@ -53,13 +51,13 @@ if (!empty($_POST)) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../employee" class="nav-link">
+                        <a href="" class="nav-link active">
                             <i class='bx bx-user icon' ></i>
                             <span class="link">Quản lý nhân viên</span>
                         </a>
                     </li>
                     <li class="list">
-                        <a href="" class="nav-link active">
+                        <a href="../product" class="nav-link">
                             <i class='bx bxs-bowl-hot icon' ></i>
                             <span class="link">Quản lý sản phẩm</span>
                         </a>
@@ -93,73 +91,78 @@ if (!empty($_POST)) {
         </div>
     </nav>
 
-
-
-</body>
 	<div class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h2 class="text-center">QUẢN LÝ SẢN PHẨM</h2>
+				<h2 class="text-center">QUẢN LÝ NHÂN VIÊN</h2>
 			</div>
 			<div class="panel-body">
 				<a href="add.php">
-					<button class="btn btn-success" style="margin-bottom: 15px;">Thêm Sản phẩm</button>
+					<button class="add-button btn btn-success" style="margin-bottom: 15px;">Thêm Nhân viên</button>
 				</a>
 				<form class="d-flex" method="post" action="search.php" >
                  <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
                 <input type="submit" class="btn0" name="search" value="Tìm kiếm">
                 </form><br>
 				<table class="table table-bordered table-striped table-hover">
-					<thead class="thead-dark">
-					<colgroup>
-							<col width="50" span="1">
-							<col width="120" span="1">
+					<thead class="thead-light">
+						<colgroup>
+							<col width="30" span="1">
+							<col width="140" span="1">
+							<col width="90" span="1">
+							<col width="110" span="1">
 							<col width="150" span="2">
-							<col width="200" span="1">
-							<col width="240" span="1">
-							<col width="100" span="1">
-							<col width="100" span="1">
-							<col width="50px" span="2">
+							<col width="70" span="1">
+							<col width="80" span="1">
+							<col width="90" span="1">
+							<col width="120" span="1">
+							<col width="45" span="2">
+						
 						</colgroup>
 						<tr>
 							<th>STT</th>
-							<th>Mã Sản Phẩm</th>
-							<th>Dòng Sản Phẩm</th>
-							<th>Tên Sản Phẩm</th>
-							<th>Hình Ảnh</th>							
-							<th>Mô tả</th>
-							<th>Giá</th>	
-							<th>Tình trạng</th>						
-							<th colspan="2">Tùy chọn</th>
-						
+							<th>Tên Nhân Viên</th>
+							<th>Giới Tính</th>
+							<th>Ngày Sinh</th>
+							<th>Email</th>
+							<th>Số Điện Thoại</th>
+							<th>Cơ sở</th>
+							<th>Quản lý</th>
+							<th>Nghiệp vụ</th>
+							<th>Ngày bắt đầu</th>
+							<th colspan="2">Tuỳ chọn</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
-                        //Lay danh sach san pham tu database
-                        $sql = 'select * from products';
-                        $productList = executeResult($sql);
+						//Lay danh sach nhan vien tu database
+						$sql          = 'select * from employees where employeeName LIKE "%'.$employeeName.'%"';    
+						$employeeList = executeResult($sql);
 
-                        $index = 1;
-                        foreach ($productList as $item) {
-	                        echo '<tr>
-										<td>' . ($index++) . '</td>
-                                        <td>' . $item['productCode'] . '</td>
-										<td>' . $item['productLine'] . '</td>
-										<td>' . $item['productName'] . '</td>
-										<td><img src="' . $item['image_path'] . '"style="max-width: 150px"/></td>										
-										<td>' . $item['productDescription'] . '</td>
-										<td>' . $item['price'] . '</td>		
-										<td>' . $item['available'] . '</td>									
+						$index = 1;
+						foreach ($employeeList as $item) {
+							echo '<tr>
+										<td>'.($index++).'</td>
+										<td>'.$item['employeeName'].'</td>
+										<td>'.$item['gender'].'</td>
+										<td>'.$item['birthday'].'</td>
+										<td>'.$item['email'].'</td>
+										<td>'.$item['phone'].'</td>
+										<td>'.$item['storeId'].'</td>
+										<td>'.$item['managerId'].'</td>
+										<td>'.$item['jobTitle'].'</td>
+										<td>'.$item['start_date'].'</td>
 										<td>
-											<a href="add.php?productCode=' . $item['productCode'] . '"><button class="bx bx-edit"></button></a>
+											<a href="add.php?employeeNumber='.$item['employeeNumber'].'"><button class="edit-button bx bx-edit"></button></a>
 										</td>
 										<td>
-											<button class="bx bx-trash" onclick="deleteCategory(\''.$item['productCode'].'\')"></button>
+											<button class="delete-button bx bx-trash" onclick="deleteCategory('.$item['employeeNumber'].')">
+												
+											</button>
 										</td>
 									</tr>';
-                        }
-                        ?>
+						}
+						?>
 					</tbody>
 				</table>
 			</div>
@@ -167,20 +170,21 @@ if (!empty($_POST)) {
 	</div>
 
 	<script type="text/javascript">
-		function deleteCategory(productCode) {
-			var option = confirm('Bạn có chắc chắn muốn xoá sản phẩm này không?')
-			if (!option) {
+		function deleteCategory(employeeNumber) {
+			var option = confirm('Bạn có chắc chắn muốn xoá nhân viên này không?')
+			if(!option) {
 				return;
 			}
 
-			console.log(productCode)
+			console.log(employeeNumber)
 			//ajax - lenh post
 			$.post('ajax.php', {
-				'productCode': productCode,
+				'employeeNumber': employeeNumber,
 				'action': 'delete'
-			}, function (data) {
+			}, function(data) {
 				location.reload()
 			})
 		}
 	</script>
+</body>
 </html>

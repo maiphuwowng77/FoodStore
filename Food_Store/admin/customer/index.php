@@ -1,5 +1,16 @@
 <?php
-require_once ('../../db/dbhelper.php');?>
+require_once ('../../db/dbhelper.php');
+?>
+<?php
+require_once ('../../db/dbhelper.php');
+$sanpham ='';
+if (!empty($_POST)) {
+	if (isset($_POST['search'])) {
+	  $customerName = $_POST['sanpham'];  
+	}
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -87,6 +98,10 @@ require_once ('../../db/dbhelper.php');?>
 			<div class="panel-heading">
 				<h2 class="text-center">QUẢN LÝ KHÁCH HÀNG</h2>
 			</div>
+            <form class="d-flex" method="post" action="search.php" >
+                 <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
+                <input type="submit" class="btn0" name="search" value="Tìm kiếm">
+                </form><br>
 			<div class="panel-body">
 				<table class="table table-bordered table-striped table-hover">
 					<thead class="thead-light">

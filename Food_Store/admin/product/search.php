@@ -7,7 +7,7 @@ require_once ('../../db/dbhelper.php');
 $sanpham ='';
 if (!empty($_POST)) {
 	if (isset($_POST['search'])) {
-	  $producName = $_POST['sanpham'];  
+	  $productName = $_POST['sanpham'];  
 	}
   }
 ?>
@@ -137,7 +137,7 @@ if (!empty($_POST)) {
 					<tbody>
 						<?php
                         //Lay danh sach san pham tu database
-                        $sql = 'select * from products';
+                        $sql = 'select * from products where productName LIKE "%'.$productName.'%"';
                         $productList = executeResult($sql);
 
                         $index = 1;

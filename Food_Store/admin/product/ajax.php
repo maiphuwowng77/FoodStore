@@ -8,9 +8,9 @@ if (!empty($_POST)) {
 		switch ($action) {
 			case 'delete':
 				if (isset($_POST['productCode'])) {
-					$id = $_POST['productCode'];
+					$productCode = $_POST['productCode'];
 
-					$sql = 'delete from products where productCode = '.$id;
+					$sql = 'delete from products where productCode = \''.$productCode.'\'';
 					execute($sql);
 				}
 				break;

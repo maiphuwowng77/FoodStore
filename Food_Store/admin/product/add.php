@@ -43,7 +43,7 @@ if (!empty($_POST)) {
 
 if (isset($_GET['productCode'])) {
 	$productCode       = $_GET['productCode'];
-	$sql      = 'select * from products where productCode = '.$productCode;
+	$sql      = 'select * from products where productCode = \''.$productCode.'\'';
 	$products = executeSingleResult($sql);
 	if ($products != null) {
 		$productCode = $products['productCode'];
@@ -74,63 +74,33 @@ if (isset($_GET['productCode'])) {
 </head>
 
 <body>
-<nav>
-<div class="sidebar">
-            <div class="admin">
-                <img src="../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
-                <strong class="admin-name">
-                     Admin
-                </strong>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+		<!-- Brand/logo -->
+		<div class="admin">
+                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
             </div>
-            <hr width="300px" color="#e8e5e5"/>
-            <div class="sidebar-content">
-                <ul class="lists">
-                    <li class="list">
-                        <a href="" class="nav-link">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="link">Trang chủ</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="../employee" class="nav-link">
-                            <i class='bx bx-user icon' ></i>
-                            <span class="link">Quản lý nhân viên</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="../product" class="nav-link">
-                            <i class='bx bxs-bowl-hot icon' ></i>
-                            <span class="link">Quản lý sản phẩm</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="../order" class="nav-link">
-                            <i class='bx bx-cart-alt icon' ></i>
-                            <span class="link">Quản lý đơn hàng</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="../customer" class="nav-link">
-                            <i class='bx bxs-group icon' ></i>
-                            <span class="link">Quản lý khách hàng</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="../password" class="nav-link">
-                            <i class='bx bxs-key icon'></i>
-                            <span class="link">Đổi mật khẩu</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="../../food_store_web/build/user.php" class="nav-link">
-                            <i class='bx bx-log-out icon' ></i>
-                            <span class="link">Đăng xuất</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+		<!-- Links -->
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" href="#">Quản Lý Nhân Viên</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="../product">Quản Lý Sản Phẩm</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="../order">Quản Lý Đơn hàng</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="../customer">Quản Lý Khách Hàng</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="../admin.php">Trang chủ</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="../../food_store_web/build/index.html">Đăng xuất</a>
+			</li>
+		</ul>
+	</nav>
 
 </body>
 
