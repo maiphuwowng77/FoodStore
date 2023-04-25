@@ -1,5 +1,14 @@
 <?php
 require_once ('../../db/dbhelper.php');
+if (!empty($_POST)) {
+  if (isset($_POST['sua'])) {
+    $orderNumber = $_POST['done']; 
+    $sql = 'update orders set status = "Hoàn thành" where orderNumber = "'.$orderNumber.'"'; 
+    execute($sql);
+    header('Location: index.php');
+	die();
+  }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +38,7 @@ require_once ('../../db/dbhelper.php');
 <nav>
 <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <img src="../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                      Admin
                 </strong>
@@ -74,7 +83,7 @@ require_once ('../../db/dbhelper.php');
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../../food_store_web/build/user.php" class="nav-link">
+                        <a href="../../food_store_web/build/index.html" class="nav-link">
                             <i class='bx bx-log-out icon' ></i>
                             <span class="link">Đăng xuất</span>
                         </a>
@@ -97,23 +106,27 @@ require_once ('../../db/dbhelper.php');
 					<thead class="thead-dark">
                     <colgroup>
 							<col width="50" span="">
-							<col width="170" span="1">
-							<col width="170" span="1">
-							<col width="170" span="1">
+							<col width="70" span="1">
+							<col width="150" span="1">
+							<col width="70" span="1">
+							<col width="120" span="1">
+							<col width="70" span="1">
 							<col width="150" span="1">
 							<col width="150" span="1">
-							<col width="250" span="1">
-                            <col width="50" span="1">
+							<col width="100" span="1">
+                            <col width="70" span="2">
 						</colgroup>
 						<tr>
 							<th>STT</th>
-							<th>Mã Đơn Hàng</th>
+							<th>Mã ĐH</th>
 							<th>Ngày Đặt</th>
-							<th>Mã Khách Hàng</th>
+							<th>Mã KH</th>
 							<th>Giá Đơn</th>
-                            <th>Mã Cửa Hàng</th>
-							<th>Phương thức thanh toán</th>
-                            <th width="40px">Done</th>
+                            <th>Mã CH</th>
+                            <th>Ghi chú</th>
+							<th>PTTT</th>
+							<th>Trạng thái</th>
+							<th colspan="2">Hoàn thành</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -124,17 +137,22 @@ require_once ('../../db/dbhelper.php');
 
                         $index = 1;
                         foreach ($productList as $item) {
-	                        echo '<tr>
+	                        echo '<form method="post">
+	                        	<tr>
 										<td>' . ($index++) . '</td>
                                         <td>' . $item['orderNumber'] . '</td>
 										<td>' . $item['orderDate'] . '</td>
 										<td>' . $item['customerNumber'] . '</td>
 										<td>' . $item['orderPrice'] . '</td>
 										<td>' . $item['storeId'] . '</td>
+										<td>' . $item['note'] . '</td>
 										<td>' . $item['payment_method'] . '</td>
-                                        <td><input type="checkbox" id="vehicle1" name="vehicle1">
-                                        <label for="vehicle1"></label><br></td>	
-									</tr>'; 
+										<td>' . $item['status'] . '</td>
+                                        <td style ="padding-top: 25px; padding-left: 20px"><input type="checkbox" id="done" name="done" value="'.$item['orderNumber'].'">
+                                        <label for="done"></label><br></td>	
+                                        <td><input type="submit" class="btn btn-warning" name="sua" value="Lưu"></td>
+									</tr>
+									</form>'; 
                         }
                         ?>
 					</tbody>
