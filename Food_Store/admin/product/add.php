@@ -1,7 +1,7 @@
 <?php
 require_once ('../../db/dbhelper.php');
 
-$productCode = $productCode = $productName = $productLine = $productDescription = $price = $image_path = '';
+$productCode = $productCode = $productName = $productLine = $productDescription = $price = $available =$image_path = '';
 if (!empty($_POST)) {
 	if (isset($_POST['productCode'])) {
 		$productCode = $_POST['productCode'];
@@ -20,6 +20,9 @@ if (!empty($_POST)) {
 	if (isset($_POST['price'])) {
 		$price = $_POST['price'];
 	}
+	if (isset($_POST['available'])) {
+		$price = $_POST['available'];
+	}
 	if (isset($_POST['image_path'])) {
 		$image_path = $_POST['image_path'];
 	}
@@ -28,10 +31,10 @@ if (!empty($_POST)) {
 		//Luu vao database
 		if ($productCode == '') {
 			
-			$sql = 'insert into products(productCode, productName, productLine, productDescription, price, image_path) values ("'.$productCode.'", "'.$productName.'", "'.$productLine.'", "'.$productDescription.'", "'.$price.'", "'.$image_path.'")';
+			$sql = 'insert into products(productCode, productName, productLine, productDescription, price, available, image_path) values ("'.$productCode.'", "'.$productName.'", "'.$productLine.'", "'.$productDescription.'", "'.$price.'", "'.$available.'", "'.$image_path.'")';
 
 		} else {
-			$sql = 'update products set productCode = "'.$productCode.'", productName = "'.$productName.'", productLine = "'.$productLine.'", productDescription = "'.$productDescription.'", price = "'.$price.'", image_path = "'.$image_path.'" where id = '.$productCode;
+			$sql = 'update products set productCode = "'.$productCode.'", productName = "'.$productName.'", productLine = "'.$productLine.'", productDescription = "'.$productDescription.'", price = "'.$price.'", available = "'.$available.'", image_path = "'.$image_path.'" where productCode = "'.$productCode.'"';
 		}
 
 		execute($sql);
@@ -43,7 +46,7 @@ if (!empty($_POST)) {
 
 if (isset($_GET['productCode'])) {
 	$productCode       = $_GET['productCode'];
-	$sql      = 'select * from products where productCode = \''.$productCode.'\'';
+	$sql      = 'select * from products where productCode = "'.$productCode.'"';
 	$products = executeSingleResult($sql);
 	if ($products != null) {
 		$productCode = $products['productCode'];
@@ -58,7 +61,7 @@ if (isset($_GET['productCode'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Quản Lý</title>
+	<title>Thêm/Sửa Thông Tin Sản Phẩm</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -70,38 +73,71 @@ if (isset($_GET['productCode'])) {
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<!--tableForm-->
+	<!----======== CSS ======== -->
+	<link rel="stylesheet" href="../index.css">
+	<link rel="stylesheet" href="../employee/employee.css">
+	<!----===== Boxicons CSS ===== -->
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
-		<!-- Brand/logo -->
-		<div class="admin">
-                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+<nav>
+<div class="sidebar">
+            <div class="admin">
+                <img src="../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
+                <strong class="admin-name">
+                     Admin
+                </strong>
             </div>
-		<!-- Links -->
-		<ul class="nav nav-tabs">
-			<li class="nav-item">
-				<a class="nav-link active" href="#">Quản Lý Nhân Viên</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../product">Quản Lý Sản Phẩm</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../order">Quản Lý Đơn hàng</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../customer">Quản Lý Khách Hàng</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../admin.php">Trang chủ</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="../../food_store_web/build/index.html">Đăng xuất</a>
-			</li>
-		</ul>
-	</nav>
-
+            <hr width="300px" color="#e8e5e5"/>
+            <div class="sidebar-content">
+                <ul class="lists">
+                    <li class="list">
+                        <a href="" class="nav-link">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="link">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../employee" class="nav-link active">
+                            <i class='bx bx-user icon' ></i>
+                            <span class="link">Quản lý nhân viên</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../product" class="nav-link">
+                            <i class='bx bxs-bowl-hot icon' ></i>
+                            <span class="link">Quản lý sản phẩm</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../order" class="nav-link">
+                            <i class='bx bx-cart-alt icon' ></i>
+                            <span class="link">Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../customer" class="nav-link">
+                            <i class='bx bxs-group icon' ></i>
+                            <span class="link">Quản lý khách hàng</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../password" class="nav-link">
+                            <i class='bx bxs-key icon'></i>
+                            <span class="link">Đổi mật khẩu</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../../food_store_web/build/index.html" class="nav-link">
+                            <i class='bx bx-log-out icon' ></i>
+                            <span class="link">Đăng xuất</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </body>
 
 	<div class="container">
@@ -126,42 +162,31 @@ if (isset($_GET['productCode'])) {
 					  <select class="form-control" name="productLine" id="productLine">
 					  	<option>-- Lựa chọn dòng sản phẩm --</option>
 					  	<?php
-					  		if ($productLine == 'Coffee') {
-					  			 echo '<option selected value = "Coffee">Cà phê</option>';
-					  		} else {
-					  			echo '<option value = "Coffee">Cà phê</option>';
-					  		}
-					  		if ($productLine == 'Juice') {
-					  			echo '<option selected value = "Juice">Nước ép</option>';
-					  		} else {
-					  			echo '<option value = "Juice">Nước ép</option>';
-					  		}
-					  		if ($productLine == 'Smoothie') {
-					  			echo '<option selected value = "Smoothie">Sinh tố</option>';
-					  		} else {
-					  			echo '<option value = "Smoothie">Sinh tố</option>';
-					  		} 
-							if ($productLine == 'Tea') {
-                                echo '<option selected value = "Tea">Trà</option>';
-                            } else {
-                                echo '<option value = "Tea">Trà</option>';
-                            }
-							if ($productLine == 'Desert') {
-                                echo '<option selected value = "Desert">Tráng miệng</option>';
-                            } else {
-                                echo '<option value = "Desert">Tráng miệng</option>';
-                            }
+					  		$sql          = 'select * from productline';
+							$productlineList = executeResult($sql);
+							foreach ($productlineList as $item) {
+								if ($item['productLine'] == $productLine) {
+									echo '<option selected value = "'.$item['productLine'].'">'.$item['productLine'].'</option>';
+								} else {
+									echo '<option value = "'.$item['productLine'].'">'.$item['productLine'].'</option>';
+								}
+							}
 					  	?>
 					  </select>
-					</div>
-					<div class="form-group">
-					  <label for="productDescription"><b>Mô tả:</b></label>
-					  <textarea class="form-control" rows="5" name="productDescription" id="productDescription"><?=$productDescription?></textarea>
 					</div>
 					<div class="form-group">
 					  <label for="price"><b>Giá:</b></label>
 					  <input type="text" name="id" value="<?=$productCode?>" hidden="true">
 					  <input required="true" type="text" class="form-control" id="price" name="price" value="<?=$price?>">
+					</div>
+					<div class="form-group">
+					  <label for="price"><b>Tình trạng:</b></label>
+					  <input type="text" name="id" value="<?=$productCode?>" hidden="true">
+					  <input required="true" type="text" class="form-control" id="available" name="available" value="<?=$available?>">
+					</div>
+					<div class="form-group">
+					  <label for="productDescription"><b>Mô tả:</b></label>
+					  <textarea class="form-control" rows="5" name="productDescription" id="productDescription"><?=$productDescription?></textarea>
 					</div>
 					<div class="form-group">
 					  <label for="image_path"><b>Hình ảnh:</b></label>

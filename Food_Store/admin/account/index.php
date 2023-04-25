@@ -1,12 +1,12 @@
 <?php 
-session_start();
-
-if(isset($_POST['username'])){
+require_once('../../db/dbhelper.php');
+if (isset($_POST['dangnhap'])) {
     $password = $_POST['password'];
     $username = $_POST['username'];
-	if($username == 'admin' && $password == '123456'){
-		$_SESSION['username'] = $username;
-		header('location../../../employee/index.php');
+    $sql = 'select * from account';
+    $account = executeSingleResult($sql);
+	if ($username == $account['username'] && $password == $account['password']) {
+		header('location: ../employee/index.php');
 	} 
 }
 ?>
@@ -14,30 +14,28 @@ if(isset($_POST['username'])){
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../account/login.css">
+		<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+		<title>Form login</title>
 	</head>
 	<body>
-		<form action="../employee/index.php" method="post">
-			<div class="imgcontainer">
-				<img src="../../food_store_web/img/Logo.png" alt="Avatar" class="avatar">
-			</div>
-
-			<div class="container">
-				<label for="uname"><b>Username</b></label>
-				<input type="text" placeholder="Enter Username" name="uname" required>
-
-				<label for="psw"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="psw" required>
-
-				<button type="submit">Login</button>
-				<label>
-				<input type="checkbox" checked="checked" name="remember"> Remember me
-				</label>
-			</div>
-
-			<div class="container" style="background-color:#f1f1f1">
-				<button type="button" onclick="location.href='../../food_store_web/build/user.php'" class="cancelbtn">Cancel</button>
-			</div>
+		<div id = "wrapper">
+			<form method="post" id = "form-login">
+				<h1 class="form-heading">ĐĂNG NHẬP</h1>
+				<div class="form-group">
+					<i class="far fa-user"></i>
+					<input type="text" name="username" class="form-input" placeholder="Tên đăng nhập">
+				</div>
+				<div class="form-group">
+					<i class="fas fa-key"></i>
+					<input type="text" name ="password" class="form-input" placeholder="Mật khẩu">
+				</div>
+				<input type="submit" name="dangnhap" class="form-submit" value="Đăng nhập">
 			</form>
+		</div>
+		
 	</body>
 </html>

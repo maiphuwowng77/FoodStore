@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito&family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito&family=Rubik&display=swap" rel="sty\ưlesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   </head>
   
@@ -53,6 +53,7 @@
             
         <div class="icon px-1">
           <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="70" height="70" alt="">
+          <span class="badge bg-danger">0</span>
         </div>
 
         <div class="icon px-1">
@@ -228,7 +229,7 @@
                   <a  onclick="location.href='./product.php'" href="#">Sản phẩm</a>
                 </li>
                 <li class="item">
-                  <a onclick="location.href='./product.php'" href="#">Đặt hàng</a>
+                  <a onclick="location.href='./orderPage.html'" href="#">Đặt hàng</a>
                 </li>
               </ul>
             </div>

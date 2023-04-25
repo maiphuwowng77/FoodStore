@@ -1,8 +1,5 @@
 <?php
 require_once ('../../db/dbhelper.php');
-?>
-<?php
-require_once ('../../db/dbhelper.php');
 $sanpham ='';
 if (!empty($_POST)) {
 	if (isset($_POST['search'])) {
@@ -30,7 +27,7 @@ if (!empty($_POST)) {
 	<!--tableForm-->
 	<!----======== CSS ======== -->
 	<link rel="stylesheet" href="../index.css">
-	<link rel="stylesheet" href="../customer.css">
+	<link rel="stylesheet" href="./customer.css">
 	<!----===== Boxicons CSS ===== -->
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -39,7 +36,7 @@ if (!empty($_POST)) {
 <nav>
         <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <img src="../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                      Admin
                 </strong>
@@ -112,7 +109,6 @@ if (!empty($_POST)) {
 							<col width="190" span="1">
 							<col width="300" span="1">
 							<col width="170" span="1">
-							<col width="170" span="1">
 						</colgroup>
 					
 						<tr>
@@ -121,7 +117,6 @@ if (!empty($_POST)) {
 							<th>Tên Khách Hàng</th>
 							<th>Số Điện Thoại</th>
 							<th>Địa chỉ</th>
-							<th>Email</th>
 							<th>Thẻ tích điểm</th>
 						</tr>
 						<style>
@@ -147,8 +142,7 @@ if (!empty($_POST)) {
 										<td>' . $item['customerName'] . '</td>
 										<td>' . $item['phone'] . '</td>
 										<td>' . $item['address'] . '</td>
-										<td>' . $item['email'] . '</td>	
-										<td>' . $item['loyal_card'] . '</td>										
+										<td>' . $item['loyalty_card'] . '</td>										
 									</tr>';
                         }
                         ?>

@@ -10,7 +10,7 @@ if (!empty($_POST)) {
 				if (isset($_POST['productCode'])) {
 					$productCode = $_POST['productCode'];
 
-					$sql = 'delete from products where productCode = \''.$productCode.'\'';
+					$sql = 'delete from products where productCode = "'.$productCode'"';
 					execute($sql);
 				}
 				break;

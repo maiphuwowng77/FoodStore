@@ -1,6 +1,6 @@
 <?php
 require_once ('../../db/dbhelper.php');
-$productName ='';
+$sanpham ='';
 if (!empty($_POST)) {
   if (isset($_POST['search'])) {
     $productName = $_POST['sanpham'];  
@@ -37,28 +37,14 @@ if (!empty($_POST)) {
             <li class="nav-item"><a class="nav-link active" onclick="location.href='./index.html'" href="#trangchu">Trang chủ</a></li>
             <li class="nav-item"><a class="nav-link" onclick="location.href='./index.html#gioithieu'" href="#gioithieu">Giới thiệu</a></li>
               
-            <div class="dropdown">
-              <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Sản phẩm
-              </button>
-              <ul class="nav-item dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" onclick="location.href='./product.php'">Tất cả</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#com'">Cơm</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#canh'">Canh</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#kimbap'">Kimbap</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#ga'">Gà</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#my'">Mỳ</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#tokbokki'">Tokbokki</a></li>
-                <li><a class="dropdown-item" onclick="location.href='./product.php#douong'">Đồ uống</a></li>
-              </ul>
-            </div>
+            <li class="nav-item"><a class="nav-link active" onclick="location.href='./product.php'" href="#sanpham">Sản phẩm</a></li>
           
           </ul>
 
           
         </div>
         <form class="d-flex" method="post" action="search.php" >
-            <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" value="<?=$productName?>">
+            <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
             <input type="submit" class="btn0" name="search" value="Tìm kiếm">
           </form>
             

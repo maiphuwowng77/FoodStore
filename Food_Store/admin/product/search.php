@@ -1,9 +1,5 @@
 <?php
 require_once ('../../db/dbhelper.php');
-?>
-
-<?php
-require_once ('../../db/dbhelper.php');
 $sanpham ='';
 if (!empty($_POST)) {
 	if (isset($_POST['search'])) {
@@ -83,7 +79,7 @@ if (!empty($_POST)) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../../food_store_web/build/user.php" class="nav-link">
+                        <a href="../../food_store_web/build/index.html" class="nav-link">
                             <i class='bx bx-log-out icon' ></i>
                             <span class="link">Đăng xuất</span>
                         </a>

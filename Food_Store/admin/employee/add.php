@@ -93,7 +93,7 @@ if (isset($_GET['employeeNumber'])) {
 <nav>
 <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <img src="../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                      Admin
                 </strong>
@@ -138,7 +138,7 @@ if (isset($_GET['employeeNumber'])) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../../food_store_web/build/user.php" class="nav-link">
+                        <a href="../../food_store_web/build/index.html" class="nav-link">
                             <i class='bx bx-log-out icon' ></i>
                             <span class="link">Đăng xuất</span>
                         </a>
