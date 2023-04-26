@@ -105,7 +105,7 @@ if (!empty($_POST)) {
     
       <br><br></br></br>
       <div class="productlist">
-        <div id="com" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
+        <div id="com" class="container-fluid" style="padding:110px 10px; padding-left: 2.5%;">
           <h2>Cơm</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -141,7 +141,7 @@ if (!empty($_POST)) {
           </div>
         
         </div>
-        <div id="canh" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
+        <div id="canh" class="container-fluid" style="padding:110px 10px; padding-left: 2.5%;">
           <h2>Canh</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -175,7 +175,7 @@ if (!empty($_POST)) {
             ?> 
           </div>
         </div>
-        <div id="kimbap" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
+        <div id="kimbap" class="container-fluid" style="padding:110px 10px; padding-left: 2.5%;">
           <h2>Kimbap</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -211,7 +211,7 @@ if (!empty($_POST)) {
           </div>
         
         </div>
-        <div id="ga" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
+        <div id="ga" class="container-fluid" style="padding:110px 10px; padding-left: 2.5%;">
           <h2>Gà</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -247,7 +247,7 @@ if (!empty($_POST)) {
           </div>
         
         </div>
-        <div id="my" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
+        <div id="my" class="container-fluid" style="padding:110px 10px; padding-left: 2.5%;">
           <h2>Mỳ</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -283,7 +283,7 @@ if (!empty($_POST)) {
           </div>
         
         </div>
-        <div id="tokbokki" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
+        <div id="tokbokki" class="container-fluid" style="padding:110px 10px; padding-left: 2.5%;">
           <h2>Tokbokki</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -319,7 +319,7 @@ if (!empty($_POST)) {
           </div>
         
         </div>
-        <div id="douong" class="container-fluid" style="padding:80px 10px; padding-left: 2.5%;">
+        <div id="douong" class="container-fluid" style="padding:110px 10px; padding-left: 2.5%;">
           <h2>Đồ uống</h2>
           <br>
           <div class="row row-cols-1 row-cols-md-4 g-4">
