@@ -48,8 +48,8 @@ if (!empty($_POST)) {
             <input type="submit" class="btn0" name="search" value="Tìm kiếm">
           </form>
             
-        <div class="icon px-1">
-          <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="70" height="70" alt="">
+          <div class="icon px-1">
+          <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="60" height="60" alt="">
         </div>
 
         <div class="icon px-1">
