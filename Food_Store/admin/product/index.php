@@ -35,7 +35,7 @@ if (!empty($_POST)) {
 <nav>
 <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <img src="../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                      Admin
                 </strong>
