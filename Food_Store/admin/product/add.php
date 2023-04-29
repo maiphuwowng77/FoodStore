@@ -1,7 +1,7 @@
 <?php
 require_once ('../../db/dbhelper.php');
 
-$productCode = $productCode = $productName = $productLine = $productDescription = $price = $available =$image_path = '';
+$productCode = $productName = $productLine = $productDescription = $price = $available =$image_path = '';
 if (!empty($_POST)) {
 	if (isset($_POST['productCode'])) {
 		$productCode = $_POST['productCode'];
@@ -27,15 +27,10 @@ if (!empty($_POST)) {
 		$image_path = $_POST['image_path'];
 	}
 
-	if (!empty($productName)) {
+	if (!empty($productCode)) {
 		//Luu vao database
-		if ($productCode == '') {
 			
-			$sql = 'insert into products(productCode, productName, productLine, productDescription, price, available, image_path) values ("'.$productCode.'", "'.$productName.'", "'.$productLine.'", "'.$productDescription.'", "'.$price.'", "'.$available.'", "'.$image_path.'")';
-
-		} else {
-			$sql = 'update products set productCode = "'.$productCode.'", productName = "'.$productName.'", productLine = "'.$productLine.'", productDescription = "'.$productDescription.'", price = "'.$price.'", available = "'.$available.'", image_path = "'.$image_path.'" where productCode = "'.$productCode.'"';
-		}
+		$sql = 'insert into products(productCode, productName, productLine, productDescription, price, available, image_path) values ("'.$productCode.'", "'.$productName.'", "'.$productLine.'", "'.$productDescription.'", "'.$price.'", "'.$available.'", "'.$image_path.'")';
 
 		execute($sql);
 
