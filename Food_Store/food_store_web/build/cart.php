@@ -81,11 +81,11 @@
         </div>
             
         <div class="icon px-1">
-          <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="60" height="60" alt="">
+          <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" style="border: solid 3px black;" width="45" height="45" alt="">
         </div>
 
         <div class="icon px-1">
-          <img src="../img/icon/user.png" onclick="location.href='../../admin/account'" class="rounded-circle rounded float-start" width="40" height="40" alt="">
+          <img src="../img/icon/user.png" onclick="location.href='../../admin/account'" class="rounded-circle rounded float-start" width="45" height="45" alt="">
         </div>
       </div>
     </nav>
@@ -112,15 +112,15 @@
                 </table>
             </div>
             <div style="padding-left: 25%;">
-                <input type="submit" class="btn btn-warning" style="width: 120px;" value="ĐẶT HÀNG" name="dathang">
+                <input type="submit" class="btn btn-warning" style="width: 12rem;" value="ĐẶT HÀNG" name="dathang">
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="cart.php?delcart=1"><input type="button" class="btn btn-warning" value="XÓA GIỎ HÀNG"></a>
+                <a href="cart.php?delcart=1"><input type="button" style="width: 12rem;" class="btn btn-warning" value="XÓA GIỎ HÀNG"></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="product.php"><input type="button" class="btn btn-warning" value="TIẾP TỤC ĐẶT HÀNG"></a>
+                <a href="product.php"><input type="button" style="width: 12rem;" class="btn btn-warning" value="TIẾP TỤC ĐẶT HÀNG"></a>
             </div>
         </div>
     </form>

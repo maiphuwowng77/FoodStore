@@ -61,11 +61,11 @@ if (!empty($_POST)) {
         </div>
             
         <div class="icon px-1">
-          <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" width="60" height="60" alt="">
+          <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" style="border: solid 3px black;" width="45" height="45" alt="">
         </div>
 
         <div class="icon px-1">
-          <img src="../img/icon/user.png" onclick="location.href='../../admin/account'" class="rounded-circle rounded float-start" width="40" height="40" alt="">
+          <img src="../img/icon/user.png" onclick="location.href='../../admin/account'" class="rounded-circle rounded float-start" width="45" height="45" alt="">
         </div>
       </div>
     </nav>
@@ -118,7 +118,7 @@ if (!empty($_POST)) {
                     echo '
                       <div class="col-sm-3">
                         <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." style="height: 9.7rem;";>
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
                               <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
@@ -153,7 +153,7 @@ if (!empty($_POST)) {
                     echo '
                       <div class="col-sm-3">
                         <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." style="height: 9.7rem;">
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
                               <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
@@ -188,7 +188,7 @@ if (!empty($_POST)) {
                     echo '
                       <div class="col-sm-3">
                         <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." style="height: 9.7rem;">
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
                               <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
@@ -224,7 +224,7 @@ if (!empty($_POST)) {
                     echo '
                       <div class="col-sm-3">
                         <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." style="height: 9.7rem;">
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
                               <div style="font-size: 105%; padding-left: 6%">Giá thành: ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
@@ -260,7 +260,7 @@ if (!empty($_POST)) {
                     echo '
                       <div class="col-sm-3">
                         <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." style="height: 9.7rem;">
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
                               <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
@@ -296,7 +296,7 @@ if (!empty($_POST)) {
                     echo '
                       <div class="col-sm-3">
                         <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." style="height: 9.7rem;">
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
                               <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
@@ -332,7 +332,7 @@ if (!empty($_POST)) {
                     echo '
                       <div class="col-sm-3">
                         <div class="card" style="width: 16rem; height: 24.5rem; padding: 3% 3%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="175";>
+                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." style="height: 9.7rem;">
                           <h5 class="card-title m-3">'.$item['productName'].'</h5>
                           <form action="cart.php" method="post">
                               <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
