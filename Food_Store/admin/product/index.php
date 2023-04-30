@@ -27,7 +27,7 @@ if (!empty($_POST)) {
 	<!--tableForm-->
 	<!----======== CSS ======== -->
 	<link rel="stylesheet" href="../index.css">
-	<link rel="stylesheet" href="./product.css">
+
 	<!----===== Boxicons CSS ===== -->
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -35,16 +35,16 @@ if (!empty($_POST)) {
 <nav>
 <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
+                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                      Admin
                 </strong>
             </div>
-            <hr width="300px" color="#e8e5e5"/>
+            
             <div class="sidebar-content">
                 <ul class="lists">
                     <li class="list">
-                        <a href="" class="nav-link">
+                        <a href="../index.html" class="nav-link">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="link">Trang chủ</span>
                         </a>
@@ -128,7 +128,6 @@ if (!empty($_POST)) {
 							<th>Giá</th>	
 							<th>Tình trạng</th>						
 							<th colspan="2">Tùy chọn</th>
-						
 						</tr>
 					</thead>
 					<tbody>

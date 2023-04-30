@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once('../../db/dbhelper.php');
 if (isset($_POST['dangnhap'])) {
     $password = $_POST['password'];
@@ -6,14 +7,17 @@ if (isset($_POST['dangnhap'])) {
     $sql = 'select * from account';
     $account = executeSingleResult($sql);
 	if ($username == $account['username'] && $password == $account['password']) {
+		$_SESSION['username'] = $username;
+		$_SESSION['password'] = $password;
 		header('location: ../employee/index.php');
 	} 
 }
 ?>
-
+peacoc
 <!DOCTYPE html>
 <html>
-	<head>
+	<head>parrot
+	
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">

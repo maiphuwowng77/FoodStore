@@ -6,14 +6,16 @@
   
   <!----======== CSS ======== -->
   <link rel="stylesheet" href="index.css">
-  
+  <!--Material Icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <!----===== Boxicons CSS ===== -->
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   
   <title>Quản lý</title>
 </head>
 <body>
-    <nav>
+    <div class="grid-container">
+        <nav>
         <div class="sidebar">
             <div class="admin">
                 <img src="../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
@@ -21,11 +23,11 @@
                      Admin
                 </strong>
             </div>
-            <hr width="300px" color="#e8e5e5"/>
+            <!--<hr width="300px" color="#e8e5e5"/>-->
             <div class="sidebar-content">
                 <ul class="lists">
                     <li class="list">
-                        <a href="./account" class="nav-link">
+                        <a href="" class="nav-link active">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="link">Trang chủ</span>
                         </a>
@@ -69,5 +71,41 @@
                 </ul>
             </div>
         </div>
-    </nav>
+        </nav>
+    <main class="main-container">
+        <div class="main-card">
+            <div class="card">
+                <div class="card-inner">
+                    <h2>LIKE</h2>
+                    <span class="material-icons-outlined">thumb_up</span>
+                </div>
+                <h1>5,678</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <h2>SUBSCRIBERS</h2>
+                    <span class="material-icons-outlined">subscriptions</span>
+                </div>
+                <h1>1,000</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <h2>FOLLOWERS</h2>
+                    <span class="material-icons-outlined">groups</span>
+                </div>
+                <h1>1,354</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <h2>MESSAGES</h2>
+                    <span class="material-icons-outlined">forum</span>
+                </div>
+                <h1>3,420</h1>
+            </div>
+        </div>
+    </main>
+    </div>
 </body>
