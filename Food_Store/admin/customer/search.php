@@ -45,7 +45,7 @@ if (!empty($_POST)) {
             <div class="sidebar-content">
                 <ul class="lists">
                     <li class="list">
-                        <a href="" class="nav-link">
+                        <a href="../index.php" class="nav-link">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="link">Trang chủ</span>
                         </a>

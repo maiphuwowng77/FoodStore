@@ -45,7 +45,7 @@
         <div class="row content">
             <div class="col-2">
                 <nav>
-                    <div class="sidebar">
+                    <div class="sidebar" style="width: 17rem;">
                         <div class="admin">
                             <img src="../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
                             <strong class="admin-name">
