@@ -15,10 +15,18 @@
 		"sidebar main main main";
 	height: 100vh;
 }
- body {
-  min-height: 100%;
-  background-color: white;
- }
+body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
  nav {
   position: fixed;
   top: 0;
@@ -53,7 +61,7 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 20%;
+  width: 16rem;
   padding: 20px 0px;
   background-color: #f8f9fa;
   /*box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);*/
@@ -70,7 +78,7 @@
  .sidebar .sidebar-content {
   position: fixed;
   top: 20%;
-  padding: 30px 15px;
+  padding: 30px 0px;
  } 
 .sidebar-content .list {
   list-style: none;
@@ -79,7 +87,7 @@
  .list .nav-link {
   display: flex;
   align-items: center;
-  padding: 10px 12px;
+  padding: 10px 0px;
   text-decoration: none;
 
  } 
@@ -144,35 +152,35 @@
 }
 
 .card {
+  height: 7rem;
   display: flex;
-  flex-direction:column;
   justify-content: space-around;
-  padding: 25px;
+  padding: 10px;
   color: rgb(255,255,255);
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2)
 }
 
-.card:first-child {
-  background-color: rgb(213,0,0);
+
+.col-sm-3:first-child .card {
+  background-color: rgb(58,140,207);
 }
 
-.card:nth-child(2) {
-  background-color: rgb(46,125,50);
+.col-sm-3:nth-child(2) .card {
+  background-color: rgb(217,77,65);
 }
 
-.card:nth-child(3) {
-  background-color: rgb(255,111,0);
+.col-sm-3:nth-child(3) .card {
+  background-color: rgb(71,189,137);
 }
 
-.card:nth-child(4) {
-  background-color: rgb(29,28,150);
+.col-sm-3:nth-child(4) .card {
+  background-color: rgb(247,185,84);
 }
 
 .card-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .card-inner > span {
@@ -218,4 +226,32 @@ button {
   align-self: start;
 }
 
+.rounded-circle {
+  border-radius: 5px;
+}
 
+.col-sm-3:first-child .rounded-circle {
+  background-color: rgb(110,186,237);
+}
+
+.col-sm-3:nth-child(2) .rounded-circle {
+  background-color: rgb(255,158,158);
+}
+
+.col-sm-3:nth-child(3) .rounded-circle {
+  background-color: rgb(112,219,182);
+}
+
+.col-sm-3:nth-child(4) .rounded-circle {
+  background-color: rgb(247,220,154);
+}
+
+.rounded-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -50,3 +50,17 @@ function executeSingleResult($sql) {
 
 	return $row;
 }
+
+function sum($sql) {
+	$con = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
+	// Thực hiện câu truy vấn đếm số sản phẩm
+	$result = $con->query($sql);
+	// Kiểm tra và hiển thị kết quả
+	if ($result->num_rows > 0) {
+		$row = $result->fetch_assoc();
+		return $row;
+	} else {
+		return 0;
+	}
+	mysqli_close($con);
+}

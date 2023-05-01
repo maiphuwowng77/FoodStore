@@ -9,7 +9,7 @@ if (isset($_POST['dangnhap'])) {
 	if ($username == $account['username'] && $password == $account['password']) {
 		$_SESSION['username'] = $username;
 		$_SESSION['password'] = $password;
-		header('location: ../employee/index.php');
+		header('location: ../index.php');
 	} 
 }
 ?>
