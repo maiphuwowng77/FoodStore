@@ -41,69 +41,67 @@
 <title>Quản lý</title>
 </head>
 <body>
+    <nav>
+        <div class="sidebar">
+            <div class="admin">
+                <img src="../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <strong class="admin-name">
+                    Admin
+                </strong>
+            </div>
+            <div class="sidebar-content">
+                <ul class="lists">
+                    <li class="list">
+                        <a href="" class="nav-link">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="link">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="./employee" class="nav-link">
+                            <i class='bx bx-user icon'></i>
+                            <span class="link">Quản lý nhân viên</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="./product" class="nav-link">
+                            <i class='bx bxs-bowl-hot icon'></i>
+                            <span class="link">Quản lý sản phẩm</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="./order" class="nav-link">
+                            <i class='bx bx-cart-alt icon'></i>
+                            <span class="link">Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="./customer" class="nav-link active">
+                            <i class='bx bxs-group icon'></i>
+                            <span class="link">Quản lý khách hàng</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="./password" class="nav-link">
+                            <i class='bx bxs-key icon'></i>
+                            <span class="link">Đổi mật khẩu</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../food_store_web/build/index.html" class="nav-link">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="link">Đăng xuất</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
     <div class="main-contaicer container-fluid">
         <div class="row content">
             <div class="col-2">
-                <nav>
-                    <div class="sidebar" style="width: 17rem;">
-                        <div class="admin">
-                            <img src="../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
-                            <strong class="admin-name">
-                                 Admin
-                            </strong>
-                        </div>
-                        <!--<hr width="300px" color="#e8e5e5"/>-->
-                        <div class="sidebar-content">
-                            <ul class="lists">
-                                <li class="list">
-                                    <a href="" class="nav-link active">
-                                        <i class='bx bx-home-alt icon' ></i>
-                                        <span class="link">Trang chủ</span>
-                                    </a>
-                                </li>
-                                <li class="list">
-                                    <a href="../admin/employee" class="nav-link">
-                                        <i class='bx bx-user icon' ></i>
-                                        <span class="link">Quản lý nhân viên</span>
-                                    </a>
-                                </li>
-                                <li class="list">
-                                    <a href="../admin/product" class="nav-link">
-                                        <i class='bx bxs-bowl-hot icon' ></i>
-                                        <span class="link">Quản lý sản phẩm</span>
-                                    </a>
-                                </li>
-                                <li class="list">
-                                    <a href="../admin/order" class="nav-link">
-                                        <i class='bx bx-cart-alt icon' ></i>
-                                        <span class="link">Quản lý đơn hàng</span>
-                                    </a>
-                                </li>
-                                <li class="list">
-                                    <a href="../admin/customer" class="nav-link">
-                                        <i class='bx bxs-group icon' ></i>
-                                        <span class="link">Quản lý khách hàng</span>
-                                    </a>
-                                </li>
-                                <li class="list">
-                                    <a href="../admin/password" class="nav-link">
-                                        <i class='bx bxs-key icon'></i>
-                                        <span class="link">Đổi mật khẩu</span>
-                                    </a>
-                                </li>
-                                <li class="list">
-                                    <a href="./../food_store_web/build/index.html" class="nav-link">
-                                        <i class='bx bx-log-out icon' ></i>
-                                        <span class="link">Đăng xuất</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
             </div>
-        
-        
     
             <div class="col-10" style="padding-top: 6rem;">
             <h1 style="color: black; font-family: 'Kanit', sans-serif; text-align:center;">BẢNG THỐNG KÊ</h1>
