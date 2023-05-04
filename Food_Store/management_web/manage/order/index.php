@@ -1,16 +1,18 @@
-
 <?php
-require_once ('../../db/dbhelper.php');
-$sanpham ='';
+require_once ('../../../db/dbhelper.php');
+require_once ('../../../db/store/manage_store/manage_order.php');
 if (!empty($_POST)) {
-	if (isset($_POST['search'])) {
-	  $producName = $_POST['sanpham'];  
-	}
+  if (isset($_POST['sua'])) {
+    $orderNumber = $_POST['done']; 
+    orderCheck($orderNumber);
+    header('Location: index.php');
+	die();
   }
+}
 ?>
-
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Quản Lý</title>
 	<!-- Latest compiled and minified CSS -->
@@ -25,22 +27,22 @@ if (!empty($_POST)) {
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<!--tableForm-->
-	<!----======== CSS ======== -->
+    <!----======== CSS ======== -->
 	<link rel="stylesheet" href="../index.css">
-
 	<!----===== Boxicons CSS ===== -->
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
+<body>
 <nav>
 <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <img src="../../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                      Admin
                 </strong>
             </div>
-            
+
             <div class="sidebar-content">
                 <ul class="lists">
                     <li class="list">
@@ -56,13 +58,13 @@ if (!empty($_POST)) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="" class="nav-link active">
+                        <a href="../product" class="nav-link">
                             <i class='bx bxs-bowl-hot icon' ></i>
                             <span class="link">Quản lý sản phẩm</span>
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../order" class="nav-link">
+                        <a href="" class="nav-link active">
                             <i class='bx bx-cart-alt icon' ></i>
                             <span class="link">Quản lý đơn hàng</span>
                         </a>
@@ -80,7 +82,7 @@ if (!empty($_POST)) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../../food_store_web/build/index.html" class="nav-link">
+                        <a href="../../../food_store_web/build/index.html" class="nav-link">
                             <i class='bx bx-log-out icon' ></i>
                             <span class="link">Đăng xuất</span>
                         </a>
@@ -96,64 +98,58 @@ if (!empty($_POST)) {
 	<div class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h2 class="text-center">QUẢN LÝ SẢN PHẨM</h2>
+				<h2 class="text-center">QUẢN LÝ ĐƠN HÀNG</h2>
 			</div>
 			<div class="panel-body">
-				<a href="add.php">
-					<button class="btn btn-success" style="margin-bottom: 15px;">Thêm Sản phẩm</button>
-				</a>
-				<form class="d-flex" method="post" action="search.php" >
-                 <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
-                <input type="submit" class="btn0" name="search" value="Tìm kiếm">
-                </form><br>
 				<table class="table table-bordered table-striped table-hover">
 					<thead class="thead-dark">
-					<colgroup>
-							<col width="50" span="1">
+                    <colgroup>
+							<col width="50" span="">
+							<col width="70" span="1">
+							<col width="150" span="1">
+							<col width="70" span="1">
 							<col width="120" span="1">
-							<col width="150" span="2">
-							<col width="200" span="1">
-							<col width="240" span="1">
+							<col width="70" span="1">
+							<col width="150" span="1">
+							<col width="150" span="1">
 							<col width="100" span="1">
-							<col width="100" span="1">
-							<col width="50px" span="2">
+                            <col width="70" span="2">
 						</colgroup>
 						<tr>
 							<th>STT</th>
-							<th>Mã Sản Phẩm</th>
-							<th>Dòng Sản Phẩm</th>
-							<th>Tên Sản Phẩm</th>
-							<th>Hình Ảnh</th>							
-							<th>Mô tả</th>
-							<th>Giá</th>	
-							<th>Tình trạng</th>						
-							<th colspan="2">Tùy chọn</th>
+							<th>Mã ĐH</th>
+							<th>Ngày Đặt</th>
+							<th>Mã KH</th>
+							<th>Giá Đơn</th>
+                            <th>Mã CH</th>
+                            <th>Ghi chú</th>
+							<th>PTTT</th>
+							<th>Trạng thái</th>
+							<th colspan="2">Hoàn thành</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
-                        //Lay danh sach san pham tu database
-                        $sql = 'select * from products';
-                        $productList = executeResult($sql);
+                        $orderList = orderList();
 
                         $index = 1;
-                        foreach ($productList as $item) {
-	                        echo '<tr>
+                        foreach ($orderList as $item) {
+	                        echo '<form method="post">
+	                        	<tr>
 										<td>' . ($index++) . '</td>
-                                        <td>' . $item['productCode'] . '</td>
-										<td>' . $item['productLine'] . '</td>
-										<td>' . $item['productName'] . '</td>
-										<td><img src="' . $item['image_path'] . '"style="max-width: 150px"/></td>										
-										<td>' . $item['productDescription'] . '</td>
-										<td>' . $item['price'] . '</td>		
-										<td>' . $item['available'] . '</td>									
-										<td>
-											<a href="add.php?productCode=' . $item['productCode'] . '"><button class="bx bx-edit"></button></a>
-										</td>
-										<td>
-											<button class="bx bx-trash" onclick="deleteCategory(\''.$item['productCode'].'\')"></button>
-										</td>
-									</tr>';
+                                        <td>' . $item['orderNumber'] . '</td>
+										<td>' . $item['orderDate'] . '</td>
+										<td>' . $item['customerNumber'] . '</td>
+										<td>' . $item['orderPrice'] . '</td>
+										<td>' . $item['storeId'] . '</td>
+										<td>' . $item['note'] . '</td>
+										<td>' . $item['payment_method'] . '</td>
+										<td>' . $item['status'] . '</td>
+                                        <td style ="padding-top: 25px; padding-left: 20px"><input type="checkbox" id="done" name="done" value="'.$item['orderNumber'].'">
+                                        <label for="done"></label><br></td>	
+                                        <td><input type="submit" class="btn btn-warning" name="sua" value="Lưu"></td>
+									</tr>
+									</form>'; 
                         }
                         ?>
 					</tbody>
@@ -162,21 +158,4 @@ if (!empty($_POST)) {
 		</div>
 	</div>
 
-	<script type="text/javascript">
-		function deleteCategory(productCode) {
-			var option = confirm('Bạn có chắc chắn muốn xoá sản phẩm này không?')
-			if (!option) {
-				return;
-			}
-
-			console.log(productCode)
-			//ajax - lenh post
-			$.post('ajax.php', {
-				'productCode': productCode,
-				'action': 'delete'
-			}, function (data) {
-				location.reload()
-			})
-		}
-	</script>
 </html>

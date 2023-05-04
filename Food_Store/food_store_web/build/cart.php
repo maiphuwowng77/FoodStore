@@ -1,7 +1,7 @@
 <?php
     require_once ('../../db/dbhelper.php');
+    require_once ('../../db/store/customer_store/product_info.php');
     session_start();
-    include "thuvien.php";
     if(!isset($_SESSION['giohang'])) $_SESSION['giohang']=[];
     //làm rỗng giỏ hàng
     if(isset($_GET['delcart'])&&($_GET['delcart']==1)) unset($_SESSION['giohang']);
@@ -11,9 +11,7 @@
         $tensp=$_POST['tensp'];
         $gia=$_POST['gia'];
         $soluong=$_POST['soluong'];
-        //kiem tra trang thai cua san pham (co san hay ko?)
-        $sql = 'select * from products where productName = "'.$tensp.'"';
-        $check = executeSingleResult($sql);
+        $check = checkAvailable($tensp);
         if ($check['available'] == '0') {
             echo "<script>
                     var option = confirm('Sản phẩm này đã hết. Bạn có muốn quay lại trang sản phẩm không?')
@@ -85,7 +83,7 @@
         </div>
 
         <div class="icon px-1">
-          <img src="../img/icon/user.png" onclick="location.href='../../admin/account'" class="rounded-circle rounded float-start" width="45" height="45" alt="">
+          <img src="../img/icon/user.png" onclick="location.href='../../management_web/account'" class="rounded-circle rounded float-start" width="45" height="45" alt="">
         </div>
       </div>
     </nav>

@@ -1,5 +1,6 @@
 <?php
-require_once ('../../db/dbhelper.php');
+require_once ('../../../db/dbhelper.php');
+require_once ('../../../db/store/manage_store/manage_employee.php');
 
 if (!empty($_POST)) {
 	if (isset($_POST['action'])) {
@@ -9,9 +10,7 @@ if (!empty($_POST)) {
 			case 'delete':
 				if (isset($_POST['employeeNumber'])) {
 					$employeeNumber = $_POST['employeeNumber'];
-
-					$sql = 'delete from employees where employeeNumber = '.$employeeNumber;
-					execute($sql);
+					deleteEmployee($employeeNumber);
 				}
 				break;
 		}

@@ -1,7 +1,7 @@
 <?php
   session_start();
   require_once ('../../db/dbhelper.php');
-  include "thuvien.php";
+  require_once ('../../db/store/customer_store/order_processing.php');
   $dondathang = showgiohang();
 ?>
 <html lang="en">
@@ -56,7 +56,7 @@
         </div>
 
         <div class="icon px-1">
-          <img src="../img/icon/user.png" onclick="location.href='../../admin/account'" class="rounded-circle rounded float-start" width="45" height="45" alt="">
+          <img src="../img/icon/user.png" onclick="location.href='../../management_web/account'" class="rounded-circle rounded float-start" width="45" height="45" alt="">
         </div>
       </div>
     </nav>

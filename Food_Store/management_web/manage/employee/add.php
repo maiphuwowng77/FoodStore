@@ -1,5 +1,6 @@
 <?php
-require_once ('../../db/dbhelper.php');
+require_once ('../../../db/dbhelper.php');
+require_once ('../../../db/store/manage_store/manage_employee.php');
 
 $employeeNumber = $employeeName = $gender = $birthday = $email = $phone = $storeId = $managerId = $jobTitle = $start_date = '';
 if (!empty($_POST)) {
@@ -35,16 +36,7 @@ if (!empty($_POST)) {
 		$start_date = $_POST['start_date'];
 	}
 	if (!empty($employeeName)) {
-		//Luu vao database
-		if ($employeeNumber == '') {
-			
-			$sql = 'insert into employees(employeeName, gender, birthday, email, phone, storeId, managerId, jobTitle, start_date) values ("'.$employeeName.'", "'.$gender.'", "'.$birthday.'", "'.$email.'", "'.$phone.'", "'.$storeId.'", "'.$managerId.'", "'.$jobTitle.'", "'.$start_date.'")';
-
-		} else {
-			$sql = 'update employees set employeeName = "'.$employeeName.'", gender = "'.$gender.'", birthday = "'.$birthday.'", email = "'.$email.'", phone = "'.$phone.'", storeId = "'.$storeId.'", managerId = "'.$managerId.'", jobTitle = "'.$jobTitle.'", start_date = "'.$start_date.'" where employeeNumber = '.$employeeNumber;
-		}
-
-		execute($sql);
+		addEmployee($employeeNumber, $employeeName, $gender, $birthday, $email, $phone, $storeId, $managerId, $jobTitle, $start_date);
 
 		header('Location: index.php');
 		die();
@@ -53,8 +45,7 @@ if (!empty($_POST)) {
 
 if (isset($_GET['employeeNumber'])) {
 	$employeeNumber       = $_GET['employeeNumber'];
-	$sql      = 'select * from employees where employeeNumber = '.$employeeNumber;
-	$employees = executeSingleResult($sql);
+	$employees = employeeInfo($employeeNumber);
 	if ($employees != null) {
 		$employeeName = $employees['employeeName'];
 		$gender = $employees['gender'];
@@ -93,7 +84,7 @@ if (isset($_GET['employeeNumber'])) {
 <nav>
 <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
+                <img src="../../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                      Admin
                 </strong>
@@ -138,7 +129,7 @@ if (isset($_GET['employeeNumber'])) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../../food_store_web/build/index.html" class="nav-link">
+                        <a href="../../../food_store_web/build/index.html" class="nav-link">
                             <i class='bx bx-log-out icon' ></i>
                             <span class="link">Đăng xuất</span>
                         </a>
@@ -202,8 +193,7 @@ if (isset($_GET['employeeNumber'])) {
 					  <select class="form-control" name="storeId" id="storeId">
 					  	<option>-- Lựa chọn cơ sở --</option>
 					  	<?php
-					  		$sql          = 'select * from store';
-							$storeList = executeResult($sql);
+							$storeList = storeList();
 							foreach ($storeList as $item) {
 								if ($item['storeId'] == $storeId) {
 									echo '<option selected value = "'.$item['storeId'].'">'.$item['address'].'</option>';
@@ -219,8 +209,7 @@ if (isset($_GET['employeeNumber'])) {
 					  <select class="form-control" name="managerId" id="managerId">
 					  	<option>-- Lựa chọn người quản lý --</option>
 					  	<?php
-					  		$sql          = 'select * from employees';
-							$employeeList = executeResult($sql);
+					  		$employeeList = employeeList();
 							foreach ($employeeList as $item) {
 								if ($item['employeeNumber'] == $managerId) {
 									echo '<option selected value = "'.$item['employeeNumber'].'">'.$item['employeeName'].'</option>';

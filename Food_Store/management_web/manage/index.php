@@ -1,19 +1,20 @@
 <?php
-    require_once ('../db/dbhelper.php');
-    include ("../food_store_web/build/thuvien.php");
+    require_once ('../../db/dbhelper.php');
+    require_once ('../../db/store/manage_store/manage.php');
     session_start();
     
-    $sqlEmploy = "SELECT COUNT(*) as count FROM employees";
-    $sumEmploy = sum($sqlEmploy);
-
-    $sqlProduct = "SELECT COUNT(*) as count FROM products";
-    $sumProduct = sum($sqlProduct);
-
-    $sqlCustomer = "SELECT COUNT(*) as count FROM customer";
-    $sumCustomer = sum($sqlCustomer);
-
-    $sqlOrder = "SELECT COUNT(*) as count FROM orders";
-    $sumOrder = sum($sqlOrder);
+    $sumEmploy = sumEmploy();
+    $sumProduct = sumProduct();
+    $sumCustomer = sumCustomer();
+    $sumOrder = sumOrder();
+    if (!empty($_POST)) {
+      if (isset($_POST['sua'])) {
+        $orderNumber = $_POST['done']; 
+        orderCheck($orderNumber);
+        header('Location: index.php');
+        die();
+      }
+    }
 ?>
 
 
@@ -44,7 +45,7 @@
     <nav>
         <div class="sidebar">
             <div class="admin">
-                <img src="../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                     Admin
                 </strong>
@@ -88,7 +89,7 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../food_store_web/build/index.html" class="nav-link">
+                        <a href="../../food_store_web/build/index.html" class="nav-link">
                             <i class='bx bx-log-out icon'></i>
                             <span class="link">Đăng xuất</span>
                         </a>
@@ -167,8 +168,45 @@
                     
                 </div>
             </div>
-            
-        </div>  
+            <div class="container" style="padding-left:260px;">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="text-center">QUẢN LÝ ĐƠN HÀNG ĐANG THỰC HIỆN</h2>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="thead-dark">
+                    <colgroup>
+                            <col width="70" span="1">
+                            <col width="100" span="1">
+                            <col width="250" span="1">
+                            <col width="100" span="1">
+                            <col width="250" span="1">
+                            <col width="100" span="1">
+                            <col width="100" span="1">
+                            <col width="70" span="2">
+                        </colgroup>
+                        <tr>
+                            <th>Mã ĐH</th>
+                            <th>Ngày Đặt</th>
+                            <th>Thông tin KH</th>
+                            <th>Giá Đơn</th>
+                            <th>Chi tiết đơn hàng</th>
+                            <th>Ghi chú</th>
+                            <th>PTTT</th>
+                            <th colspan="2">Hoàn thành</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            order();
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        </div> 
     </div>
     
 </body>

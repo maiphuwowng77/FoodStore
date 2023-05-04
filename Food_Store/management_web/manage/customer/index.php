@@ -1,5 +1,6 @@
 <?php
-require_once('../../db/dbhelper.php');
+require_once('../../../db/dbhelper.php');
+require_once ('../../../db/store/manage_store/manage_customer.php');
 $sanpham = '';
 if (!empty($_POST)) {
     if (isset($_POST['search'])) {
@@ -35,7 +36,7 @@ if (!empty($_POST)) {
     <nav>
         <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
+                <img src="../../../food_store_web/img/icon/logo.png" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                     Admin
                 </strong>
@@ -79,7 +80,7 @@ if (!empty($_POST)) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../../food_store_web/build/index.html" class="nav-link">
+                        <a href="../../../food_store_web/build/index.html" class="nav-link">
                             <i class='bx bx-log-out icon'></i>
                             <span class="link">Đăng xuất</span>
                         </a>
@@ -93,9 +94,11 @@ if (!empty($_POST)) {
             <div class="panel-heading">
                 <h2 class="text-center">QUẢN LÝ KHÁCH HÀNG</h2>
             </div>
-            <form class="d-flex" method="post" action="search.php">
+            <form method="post" action="search.php" style="text-align:right">
                 <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id="sanpham" name="sanpham" value="<?= $sanpham ?>">
-                <input type="submit" class="btn0" name="search" value="Tìm kiếm">
+                <button type="submit" class="btn0" name="search">
+                    <i class='bx bx-search'></i>
+                </button>
             </form><br>
             <div class="panel-body">
                 <table class="table table-bordered table-striped table-hover">
@@ -121,12 +124,10 @@ if (!empty($_POST)) {
                     </thead>
                     <tbody>
                         <?php
-                        //Lay danh sach san pham tu database
-                        $sql = 'select * from customer';
-                        $productList = executeResult($sql);
+                        $customerList = customerList();
 
                         $index = 1;
-                        foreach ($productList as $item) {
+                        foreach ($customerList as $item) {
                             echo '<tr>
 										<td>' . ($index++) . '</td>
                                         <td>' . $item['customerNumber'] . '</td>

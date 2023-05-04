@@ -1,15 +1,15 @@
 <?php 
 session_start();
 require_once('../../db/dbhelper.php');
+require_once ('../../db/store/manage_store/manage.php');
 if (isset($_POST['dangnhap'])) {
     $password = $_POST['password'];
     $username = $_POST['username'];
-    $sql = 'select * from account';
-    $account = executeSingleResult($sql);
-	if ($username == $account['username'] && $password == $account['password']) {
+    $check = checkAccount($username, $password);
+	if ($check = 1) {
 		$_SESSION['username'] = $username;
 		$_SESSION['password'] = $password;
-		header('location: ../index.php');
+		header('location: ../manage/index.php');
 	} 
 }
 ?>

@@ -1,5 +1,6 @@
 <?php
 require_once ('../../db/dbhelper.php');
+require_once ('../../db/store/customer_store/product_info.php');
 $sanpham ='';
 if (!empty($_POST)) {
   if (isset($_POST['search'])) {
@@ -53,7 +54,7 @@ if (!empty($_POST)) {
         </div>
 
         <div class="icon px-1">
-          <img src="../img/icon/user.png" onclick="location.href='../../admin/account'" class="rounded-circle rounded float-start" width="45" height="45" alt="">
+          <img src="../img/icon/user.png" onclick="location.href='../../management_web/account'" class="rounded-circle rounded float-start" width="45" height="45" alt="">
         </div>
       </div>
     </nav>
@@ -65,33 +66,7 @@ if (!empty($_POST)) {
       <br><br></br></br>
       <div class="row row-cols-1 row-cols-md-4 g-4">
             <?php
-                //Lay danh sach san pham tu database
-                $sql          = 'select * from products where productName LIKE "%'.$productName.'%"';
-                $productList = executeResult($sql);
-
-                foreach ($productList as $item) {
-                    echo '
-                      <div class="col-sm-3">
-                        <div class="card" style="width: 17rem; height: 25rem; padding: 2% 2%">
-                          <img src="'.$item['image_path'].'" class="card-img-top" alt="..." width="300" height="180";>
-                          <h5 class="card-title m-3">'.$item['productName'].'</h5>
-                          <form action="cart.php" method="post">
-                              <div style="font-size: 105%; padding-left: 6%">Giá thành: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$item['price'].' &#273</div>
-                              
-                              <div class="card-body">
-                                <div style="font-size: 105%">Số lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                              <input type="number" style="text-align: right; width: 80px"name="soluong" min="1" max="10" value="1" ></div>
-                              </div>
-                              &nbsp;<input type="submit" class="btn btn-warning" name="addcart" value="Thêm vào giỏ hàng" style ="height:50px; width:250px;">
-                            
-
-                              <input type="hidden" name="tensp" value="'.$item['productName'].'">
-                              <input type="hidden" name="gia" value="'.$item['price'].'">
-                              <input type="hidden" name="hinh" value="'.$item['image_path'].'">
-                          </form>
-                        </div>
-                      </div>';
-                }
+                productSearch($productName);
             ?> 
           </div>
   <footer id="footer" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">

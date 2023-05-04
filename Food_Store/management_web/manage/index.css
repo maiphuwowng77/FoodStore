@@ -107,7 +107,7 @@ body {
 
  .search{
   height: 40px;
-  width: 80%;
+  width: 20%;
   border-radius: 60px;
   outline: none;
   margin-right: -35px;
@@ -116,7 +116,7 @@ body {
 }
 .btn0{
   height: 40px;
-  width: 40%;
+  width: 5%;
   outline: none;
   border: none;
   background: rgb(248, 26, 92);

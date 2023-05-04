@@ -1,5 +1,6 @@
 <?php
-require_once ('../../db/dbhelper.php');
+require_once ('../../../db/dbhelper.php');
+require_once ('../../../db/store/manage_store/manage_product.php');
 
 $productCode = $productName = $productLine = $productDescription = $price = $available =$image_path = '';
 if (!empty($_POST)) {
@@ -28,16 +29,7 @@ if (!empty($_POST)) {
 	}
 
 	if (!empty($productName)) {
-		//Luu vao database
-		if ($productCode == '') {
-			
-			$sql = 'insert into products(productCode, productName, productLine, productDescription, price, available, image_path) values ("'.$productCode.'", "'.$productName.'", "'.$productLine.'", "'.$productDescription.'", "'.$price.'", "'.$available.'", "'.$image_path.'")';
-
-		} else {
-			$sql = 'update products set productCode = "'.$productCode.'", productName = "'.$productName.'", productLine = "'.$productLine.'", productDescription = "'.$productDescription.'", price = "'.$price.'", available = "'.$available.'", image_path = "'.$image_path.'" where productCode = "'.$productCode.'"';
-		}
-
-		execute($sql);
+		addProduct($productCode, $productName, $productLine, $productDescription, $price, $available, $image_path);
 
 		header('Location:index.php');
 		die();
@@ -46,8 +38,7 @@ if (!empty($_POST)) {
 
 if (isset($_GET['productCode'])) {
 	$productCode       = $_GET['productCode'];
-	$sql      = 'select * from products where productCode = "'.$productCode.'"';
-	$products = executeSingleResult($sql);
+	$products = productInfo($productCode);
 	if ($products != null) {
 		$productCode = $products['productCode'];
 		$productName = $products['productName'];
@@ -85,7 +76,7 @@ if (isset($_GET['productCode'])) {
 <nav>
 <div class="sidebar">
             <div class="admin">
-                <img src="../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
+                <img src="../../../food_store_web/img/icon/logo.jpg" alt="" width="80px" height="80px">
                 <strong class="admin-name">
                      Admin
                 </strong>
@@ -130,7 +121,7 @@ if (isset($_GET['productCode'])) {
                         </a>
                     </li>
                     <li class="list">
-                        <a href="../../food_store_web/build/index.html" class="nav-link">
+                        <a href="../../../food_store_web/build/index.html" class="nav-link">
                             <i class='bx bx-log-out icon' ></i>
                             <span class="link">Đăng xuất</span>
                         </a>
@@ -163,8 +154,7 @@ if (isset($_GET['productCode'])) {
 					  <select class="form-control" name="productLine" id="productLine">
 					  	<option>-- Lựa chọn dòng sản phẩm --</option>
 					  	<?php
-					  		$sql          = 'select * from productline';
-							$productlineList = executeResult($sql);
+							$productlineList = productlineList();
 							foreach ($productlineList as $item) {
 								if ($item['productLine'] == $productLine) {
 									echo '<option selected value = "'.$item['productLine'].'">'.$item['productLine'].'</option>';
