@@ -106,20 +106,20 @@ body {
  }
 
  .search{
+  margin-right:-2.3rem;
   height: 40px;
-  width: 20%;
+  width:14rem;
   border-radius: 60px;
   outline: none;
-  margin-right: -35px;
   font-family: 'Rubik', sans-serif;
-  border: 2px solid rgb(248, 26, 92);
+  border: 2px solid rgb(251,104,67);
 }
 .btn0{
   height: 40px;
-  width: 5%;
+  width: 3.5rem;
   outline: none;
   border: none;
-  background: rgb(248, 26, 92);
+  background: rgb(251,128,97);
   color: white;
   border-radius: 60px;
   font-family: 'Rubik', sans-serif;
@@ -167,7 +167,7 @@ body {
 }
 
 .col-sm-3:nth-child(2) .card {
-  background-color: rgb(217,77,65);
+  background-color: rgb(232,79,93);
 }
 
 .col-sm-3:nth-child(3) .card {

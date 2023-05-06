@@ -100,15 +100,18 @@ if (!empty($_POST)) {
 			<h2 class="text-center">QUẢN LÝ SẢN PHẨM</h2>
 		</div>
 		<div class="panel-body">
-			<form method="post" action="search.php" style="text-align:right">
-				<a href="add.php" style="padding-right: 705px">
-					<button class="btn btn-success" style="margin-bottom: 15px;">Thêm Sản phẩm</button>
-				</a>
-				<input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id="sanpham" name="sanpham" value="<?= $sanpham ?>">
-				<button type="submit" class="btn0" name="search">
-					<i class='bx bx-search'></i>
-				</button>
-			</form><br>
+			<div class="d-flex justify-content-between">
+					<a href="./add.php" style="padding-right: 705px">
+						<button class="btn btn-success" style="margin-bottom: 15px;">Thêm Sản phẩm</button>
+					</a>
+					<form method="post" action="search.php" class="d-flex align-items-center" style="text-align:right">
+						<input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id="sanpham" name="sanpham" value="<?= $sanpham ?>">
+						<button type="submit" class="btn0">
+							<i class='bx bx-search'></i>
+						</button>
+					</form>
+				</div>
+				<br>
 			<table class="table table-bordered table-striped table-hover">
 				<thead class="thead-dark">
 					<colgroup>

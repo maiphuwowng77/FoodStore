@@ -64,7 +64,7 @@
                 </strong>
             </div>
 
-            <div class="sidebar-content">
+            <div class="sidebar-content" style="margin-left:-2rem;">
                 <ul class="lists">
                     <li class="list">
                         <a href="../index.php" class="nav-link">

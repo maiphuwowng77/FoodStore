@@ -50,7 +50,7 @@
                     Admin
                 </strong>
             </div>
-            <div class="sidebar-content">
+            <div class="sidebar-content" style="margin-left:-2rem;">
                 <ul class="lists">
                     <li class="list">
                         <a href="" class="nav-link">
@@ -100,12 +100,8 @@
     </nav>
     
     <div class="main-contaicer container-fluid">
-        <div class="row content">
-            <div class="col-2">
-            </div>
-    
-            <div class="col-10" style="padding-top: 6rem;">
-            <h1 style="color: black; font-family: 'Kanit', sans-serif; text-align:center;">BẢNG THỐNG KÊ</h1>
+        <div class="contaicer" style="padding-left:15rem; padding-top:8rem;">
+                <h1 style="color: black; font-family: 'Kanit', sans-serif; text-align:center;">BẢNG THỐNG KÊ</h1>
                
                 <div class="row " style="padding-top: 3rem; padding-left: 3rem; padding-right: 30px;">
                     <div class="col-sm-3">
@@ -167,45 +163,46 @@
                                 
                     
                 </div>
-            </div>
-            <div class="container" style="padding-left:260px;">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h2 class="text-center">QUẢN LÝ ĐƠN HÀNG ĐANG THỰC HIỆN</h2>
-            </div>
-            <div class="panel-body">
-                <table class="table table-bordered table-striped table-hover">
-                    <thead class="thead-dark">
-                    <colgroup>
-                            <col width="70" span="1">
-                            <col width="100" span="1">
-                            <col width="250" span="1">
-                            <col width="100" span="1">
-                            <col width="250" span="1">
-                            <col width="100" span="1">
-                            <col width="100" span="1">
-                            <col width="70" span="2">
-                        </colgroup>
-                        <tr>
-                            <th>Mã ĐH</th>
-                            <th>Ngày Đặt</th>
-                            <th>Thông tin KH</th>
-                            <th>Giá Đơn</th>
-                            <th>Chi tiết đơn hàng</th>
-                            <th>Ghi chú</th>
-                            <th>PTTT</th>
-                            <th colspan="2">Hoàn thành</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            order();
-                        ?>
-                    </tbody>
-                </table>
-            </div>
         </div>
-    </div>
+            
+            <div class="contaicer" style="padding-left:270px;">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2 class="text-center">QUẢN LÝ ĐƠN HÀNG ĐANG THỰC HIỆN</h2>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="thead-dark">
+                            <colgroup>
+                                    <col width="70" span="1">
+                                    <col width="100" span="1">
+                                    <col width="250" span="1">
+                                    <col width="100" span="1">
+                                    <col width="250" span="1">
+                                    <col width="100" span="1">
+                                    <col width="100" span="1">
+                                    <col width="70" span="2">
+                                </colgroup>
+                                <tr>
+                                    <th>Mã ĐH</th>
+                                    <th>Ngày Đặt</th>
+                                    <th>Thông tin KH</th>
+                                    <th>Giá Đơn</th>
+                                    <th>Chi tiết đơn hàng</th>
+                                    <th>Ghi chú</th>
+                                    <th>PTTT</th>
+                                    <th colspan="2">Hoàn thành</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    order();
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div> 
     </div>
     
