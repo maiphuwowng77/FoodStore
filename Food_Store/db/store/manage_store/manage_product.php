@@ -36,8 +36,10 @@
 
 	//them,sua nhan vien vao db
 	function addProduct($productCode, $productName, $productLine, $productDescription, $price, $available, $image_path) {
+		$sql = 'select * from products where productCode = "'.$productCode.'"';
+		$checkName = executeSingleResult($sql);
 		//Luu vao database
-		if ($productCode == '') {
+		if ($checkName['productName'] == '') {
 			
 			$sql = 'insert into products(productCode, productName, productLine, productDescription, price, available, image_path) values ("'.$productCode.'", "'.$productName.'", "'.$productLine.'", "'.$productDescription.'", "'.$price.'", "'.$available.'", "'.$image_path.'")';
 
