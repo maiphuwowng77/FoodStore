@@ -35,7 +35,7 @@ peacoc
 				</div>
 				<div class="form-group">
 					<i class="fas fa-key"></i>
-					<input type="text" name ="password" class="form-input" placeholder="Mật khẩu">
+					<input type="password" name ="password" class="form-input" placeholder="Mật khẩu">
 				</div>
 				<input type="submit" name="dangnhap" class="form-submit" value="Đăng nhập">
 			</form>
