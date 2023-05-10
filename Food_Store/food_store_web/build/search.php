@@ -20,6 +20,7 @@ if (!empty($_POST)) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito&family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   </head>
   
 
@@ -44,10 +45,12 @@ if (!empty($_POST)) {
 
           
         </div>
-        <form class="d-flex" method="post" action="search.php" >
+        <form class="d-flex" method="post" action="search.php" style="margin-right: 8%;" >
             <input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id = "sanpham" name = "sanpham" value="<?=$sanpham?>">
-            <input type="submit" class="btn0" name="search" value="Tìm kiếm">
-          </form>
+            <button type="submit" class="btn0" name="search">
+                    <i class='bx bx-search'></i>
+                </button>
+        </form>
             
           <div class="icon px-1">
           <img src="../img/icon/cart.jpg" onclick="location.href='./cart.php'" class="rounded-circle rounded float-start" style="border: solid 3px black;" width="45" height="45" alt="">

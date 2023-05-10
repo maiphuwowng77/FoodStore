@@ -106,7 +106,7 @@ if (!empty($_POST)) {
 					</a>
 					<form method="post" action="search.php" class="d-flex align-items-center" style="text-align:right">
 						<input class="px-2 search" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm" id="sanpham" name="sanpham" value="<?= $sanpham ?>">
-						<button type="submit" class="btn0">
+						<button type="submit" class="btn0" name="search">
 							<i class='bx bx-search'></i>
 						</button>
 					</form>
