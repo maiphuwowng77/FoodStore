@@ -41,7 +41,6 @@ if (!empty($_POST)) {
 				Admin
 			</strong>
 		</div>
-		<hr width="300px" color="#e8e5e5" />
 		<div class="sidebar-content">
 			<ul class="lists">
 				<li class="list">
