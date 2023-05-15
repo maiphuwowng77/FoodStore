@@ -2,21 +2,23 @@
 session_start();
 require_once('../../db/dbhelper.php');
 require_once ('../../db/store/manage_store/manage.php');
+$check = -1;
 if (isset($_POST['dangnhap'])) {
     $password = $_POST['password'];
     $username = $_POST['username'];
     $check = checkAccount($username, $password);
-	if ($check = 1) {
+	if ($check == 1) {
 		$_SESSION['username'] = $username;
 		$_SESSION['password'] = $password;
 		header('location: ../manage/index.php');
-	} 
+	} else {
+		$check = 0;
+	}
 }
 ?>
-peacoc
 <!DOCTYPE html>
 <html>
-	<head>parrot
+	<head>
 	
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,6 +39,7 @@ peacoc
 					<i class="fas fa-key"></i>
 					<input type="password" name ="password" class="form-input" placeholder="Mật khẩu">
 				</div>
+				<?php if($check == 0) {echo '<div style="color: #fff;font-size: 13px;">Tài khoản hoặc mật khẩu không hợp lệ!</div>';} ?>
 				<input type="submit" name="dangnhap" class="form-submit" value="Đăng nhập">
 			</form>
 		</div>
