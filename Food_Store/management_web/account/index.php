@@ -1,5 +1,4 @@
 <?php 
-session_start();
 require_once('../../db/dbhelper.php');
 require_once ('../../db/store/manage_store/manage.php');
 if (isset($_POST['dangnhap'])) {
@@ -7,8 +6,6 @@ if (isset($_POST['dangnhap'])) {
     $username = $_POST['username'];
     $check = checkAccount($username, $password);
 	if ($check = 1) {
-		$_SESSION['username'] = $username;
-		$_SESSION['password'] = $password;
 		header('location: ../manage/index.php');
 	} 
 }
